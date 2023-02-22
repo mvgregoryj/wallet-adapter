@@ -134,7 +134,7 @@ const initialState: {
 export class WalletStore extends ComponentStore<WalletState> {
   /**
    * Subject of the selected wallet name.
-   * @description
+   * @description // to do
    * @readonly
    * @private
    * @type {LocalStorageSubject<WalletName<string>>}
@@ -145,7 +145,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable with the _name subject as source.
-   * @description
+   * @description notify de subscribers the value of the property name of the selected wallet.
    * @readonly
    * @private
    * @type {Observable<WalletName<string> | null>}
@@ -154,7 +154,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the unloading state of the wallet.
-   * @description
+   * @description notifiy the subscribers the vaue of the unloading property of the selected wallet.
    * @readonly
    * @private
    * @type {Observable<boolean>}
@@ -163,7 +163,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observale for the list of adapters available.
-   * @description
+   * @description notifiy the subscribers the value of the available list of adapters.
    * @readonly
    * @private
    * @type {Observable<Adapter[]>}
@@ -172,7 +172,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the adapter of the selected wallet.
-   * @description
+   * @description notify the subscribers the value of the adapter related to the selected wallet.
    * @readonly
    * @private
    * @type {Observable<Adapter | null>}
@@ -181,7 +181,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the ready state iof the selected wallet.
-   * @description
+   * @description notify the subcribers the value of the readyState of the selected wallet.
    * @readonly
    * @private
    * @type {Observable<WalletReadyState | null>}
@@ -190,7 +190,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the list of wallets available.
-   * @description
+   * @description notify the subscribers the value of the available list of wallets
    * @readonly
    * @type { Observable<Wallet[]>}
    */
@@ -198,7 +198,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the autoconnect wallet feature
-   * @description
+   * @description notify subscribers the value of the autoConnect optional property of the wallet.
    * @readonly
    * @type {Observable<boolean>}
    */
@@ -206,7 +206,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the wallet selected.
-   * @description
+   * @description notifiy subscribers the value of the selected wallet.
    * @readonly
    * @type {Observable<Wallet | null>}
    */
@@ -214,7 +214,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the public key of the selected wallet.
-   * @description
+   * @description notify subscribers the value of the public key of the selected wallet.
    * @readonly
    * @type {Observable<PublicKey | null>}
    */
@@ -222,7 +222,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the connecting wallet status.
-   * @description
+   * @description notify subscribers the value of the connecting property of the selected wallet.
    * @readonly
    * @type {Observable<boolean>}
    */
@@ -230,7 +230,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the disconnecting wallet status.
-   * @description
+   * @description notify subscribers the value of the disconnecting property of the selected wallet.
    * @readonly
    * @type {Observable<boolean>}
    */
@@ -238,7 +238,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the connected wallet status.
-   * @description
+   * @description notify subscribers the value of the connected property of the selected wallet.
    * @readonly
    * @type {Observable<boolean>}
    */
@@ -246,7 +246,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Observable for the wallet error status.
-   * @description
+   * @description notify subscribers the value of the error property of the selected wallet.
    * @readonly
    * @type {Observable<WalletError | null>}
    */
@@ -543,7 +543,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Updates the selected wallet.
-   * @description
+   * @description // to do
    * @method
    * @param {WalletName} walletName - The new wallet selected.
    * @returns {void}
@@ -554,7 +554,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Connects the adapter to the wallet.
-   * @description
+   * @description // to do
    * @method
    * @type {Observable<unknown>}
    * @throws {WalletNotSelectedError} When there's no wallet selected.
@@ -611,7 +611,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Disconnects the adapter from the wallet.
-   * @description
+   * @description // to do
    * @method
    * @type {Observable<unknown>}
    */
@@ -642,7 +642,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sends a transaction using the provided connection.
-   * @description
+   * @description // to do
    * @method
    * @param {Transaction} transaction - The Transaction to send.
    * @param {Connection} connection - The connection used to send the transaction.
@@ -680,7 +680,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign a transaction if the wallet supports it.
-   * @description
+   * @description // to do
    * @method
    * @param {Transaction} transaction - The transaction to sign.
    * @returns {Observable<Transaction> | undefined} - Observable for the signed transaction.
@@ -699,7 +699,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign multiple transactions if the wallet supports it.
-   * @description
+   * @description // to do
    * @method
    * @param {Transaction[]} transactions - List of transactions to sign
    * @returns {Observable<Transaction[]> | undefined} - Observable for the transactions signed.
@@ -718,7 +718,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign an arbitrary message if the wallet supports it.
-   * @description
+   * @description // to do
    * @method
    * @param {Uint8Array} message - The message to sign.
    * @returns {Observable<Uint8Array> | undefined} - Observable for the message signed.

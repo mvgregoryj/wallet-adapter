@@ -556,7 +556,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Connects the adapter to the wallet.
    * @description
    * @method
-   * @returns {void}
+   * @type {Observable<unknown>}
    * @throws {WalletNotSelectedError} When there's no wallet selected.
    */
   connect(): Observable<unknown> {
@@ -613,7 +613,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Disconnects the adapter from the wallet.
    * @description
    * @method
-   * @returns {void}
+   * @type {Observable<unknown>}
    */
   disconnect(): Observable<unknown> {
     return combineLatest([this.disconnecting$, this._adapter$]).pipe(
@@ -650,8 +650,6 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @returns {Observable<TransactionSignature>} - Observable for the transaction signature.
    * @throws {WalletNotSelectedError} When there's no wallet selected.
    * @throws {WalletNotConnectedError} When there's no wallet conencted.
-   *
-   * @example
    */
   sendTransaction(
     transaction: Transaction,
@@ -686,8 +684,6 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @method
    * @param {Transaction} transaction - The transaction to sign.
    * @returns {Observable<Transaction> | undefined} - Observable for the signed transaction.
-   *
-   * @example
    */
   signTransaction(
     transaction: Transaction
@@ -707,8 +703,6 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @method
    * @param {Transaction[]} transactions - List of transactions to sign
    * @returns {Observable<Transaction[]> | undefined} - Observable for the transactions signed.
-   *
-   * @example
    */
   signAllTransactions(
     transactions: Transaction[]
@@ -728,8 +722,6 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @method
    * @param {Uint8Array} message - The message to sign.
    * @returns {Observable<Uint8Array> | undefined} - Observable for the message signed.
-   *
-   * @example
    */
   signMessage(message: Uint8Array): Observable<Uint8Array> | undefined {
     const { adapter, connected } = this.get();

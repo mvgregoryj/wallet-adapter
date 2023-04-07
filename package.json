@@ -2,7 +2,10 @@
   "name": "wallet-adapter",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "babel": "babel packages --out-dir lib",
+    "docs": "jsdoc -c jsdoc.json"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.1.0",
@@ -12,6 +15,10 @@
     "@angular/cli": "~15.1.0",
     "@angular/compiler-cli": "~15.1.0",
     "@angular/language-service": "~15.1.0",
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
     "@nrwl/angular": "^15.5.1",
     "@nrwl/eslint-plugin-nx": "15.5.1",
     "@nrwl/jest": "15.5.1",
@@ -22,6 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.0",
+    "better-docs": "^2.7.2",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "jest": "28.1.1",
@@ -59,7 +67,9 @@
     "@solana/wallet-adapter-phantom": "^0.9.19",
     "@solana/wallet-adapter-solflare": "^0.6.21",
     "@solana/web3.js": "^1.73.0",
+    "jsdoc": "^4.0.2",
     "rxjs": "~7.5.0",
+    "taffydb": "^2.7.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   }

@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    "node_modules/better-docs/typescript"
+  ],
+  "source": {
+    "include": ["./packages"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs",
+    "include": ["./packages"],
+    "template": "node_modules/better-docs"
+  }
+}

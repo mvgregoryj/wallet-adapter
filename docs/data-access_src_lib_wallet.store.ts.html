@@ -1,4 +1,91 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> data-access/src/lib/wallet.store.ts</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="Wallet.html">Wallet</a></li><li><a href="WalletConfig.html">WalletConfig</a></li><li><a href="WalletState.html">WalletState</a></li></ul><h3>Global</h3><ul><li><a href="global.html#initialState">initialState</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>data-access/src/lib/wallet.store.ts</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import {
   Adapter,
@@ -70,9 +157,9 @@ export interface WalletConfig {
   adapters: Adapter[];
 }
 
-export const WALLET_CONFIG = new InjectionToken<WalletConfig>('walletConfig');
+export const WALLET_CONFIG = new InjectionToken&lt;WalletConfig>('walletConfig');
 
-export const walletConfigProviderFactory = (config: Partial<WalletConfig>) => ({
+export const walletConfigProviderFactory = (config: Partial&lt;WalletConfig>) => ({
   provide: WALLET_CONFIG,
   useValue: {
     autoConnect: false,
@@ -131,15 +218,15 @@ const initialState: {
 };
 
 @Injectable()
-export class WalletStore extends ComponentStore<WalletState> {
+export class WalletStore extends ComponentStore&lt;WalletState> {
   /**
    * Subject of the selected wallet name.
    * @description // to do
    * @readonly
    * @private
-   * @type {LocalStorageSubject<WalletName<string>>}
+   * @type {LocalStorageSubject&lt;WalletName&lt;string>>}
    */
-  private readonly _name = new LocalStorageSubject<WalletName>(
+  private readonly _name = new LocalStorageSubject&lt;WalletName>(
     this._config.localStorageKey
   );
 
@@ -148,7 +235,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description notify de subscribers the value of the property name of the selected wallet.
    * @readonly
    * @private
-   * @type {Observable<WalletName<string> | null>}
+   * @type {Observable&lt;WalletName&lt;string> | null>}
    */
   private readonly _name$ = this._name.asObservable();
 
@@ -157,7 +244,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description notifiy the subscribers the vaue of the unloading property of the selected wallet.
    * @readonly
    * @private
-   * @type {Observable<boolean>}
+   * @type {Observable&lt;boolean>}
    */
   private readonly _unloading$ = this.select(({ unloading }) => unloading);
 
@@ -166,7 +253,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description notifiy the subscribers the value of the available list of adapters.
    * @readonly
    * @private
-   * @type {Observable<Adapter[]>}
+   * @type {Observable&lt;Adapter[]>}
    */
   private readonly _adapters$ = this.select(({ adapters }) => adapters);
 
@@ -175,7 +262,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description notify the subscribers the value of the adapter related to the selected wallet.
    * @readonly
    * @private
-   * @type {Observable<Adapter | null>}
+   * @type {Observable&lt;Adapter | null>}
    */
   private readonly _adapter$ = this.select(({ adapter }) => adapter);
 
@@ -184,8 +271,8 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description notify the subcribers the value of the readyState of the selected wallet.
    * @readonly 
    * @private
-   * @type {Observable<WalletReadyState | null>}
-   * @returns {Observable<WalletReadyState | null>}
+   * @type {Observable&lt;WalletReadyState | null>}
+   * @returns {Observable&lt;WalletReadyState | null>}
    */
   private readonly _readyState$ = this.select(({ readyState }) => readyState);
 
@@ -193,7 +280,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the list of wallets available.
    * @description notify the subscribers the value of the available list of wallets
    * @readonly
-   * @type { Observable<Wallet[]>}
+   * @type { Observable&lt;Wallet[]>}
    */
   readonly wallets$ = this.select(({ wallets }) => wallets);
 
@@ -201,7 +288,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the autoconnect wallet feature
    * @description notify subscribers the value of the autoConnect optional property of the wallet.
    * @readonly
-   * @type {Observable<boolean>}
+   * @type {Observable&lt;boolean>}
    */
   readonly autoConnect$ = this.select(({ autoConnect }) => autoConnect);
 
@@ -209,7 +296,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the wallet selected.
    * @description notifiy subscribers the value of the selected wallet.
    * @readonly
-   * @type {Observable<Wallet | null>}
+   * @type {Observable&lt;Wallet | null>}
    */
   readonly wallet$ = this.select(({ wallet }) => wallet);
 
@@ -217,7 +304,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the public key of the selected wallet.
    * @description notify subscribers the value of the public key of the selected wallet.
    * @readonly
-   * @type {Observable<PublicKey | null>}
+   * @type {Observable&lt;PublicKey | null>}
    */
   readonly publicKey$ = this.select(({ publicKey }) => publicKey);
 
@@ -225,7 +312,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the connecting wallet status.
    * @description notify subscribers the value of the connecting property of the selected wallet.
    * @readonly
-   * @type {Observable<boolean>}
+   * @type {Observable&lt;boolean>}
    */
   readonly connecting$ = this.select(({ connecting }) => connecting);
 
@@ -233,7 +320,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the disconnecting wallet status.
    * @description notify subscribers the value of the disconnecting property of the selected wallet.
    * @readonly
-   * @type {Observable<boolean>}
+   * @type {Observable&lt;boolean>}
    */
   readonly disconnecting$ = this.select(({ disconnecting }) => disconnecting);
 
@@ -241,7 +328,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the connected wallet status.
    * @description notify subscribers the value of the connected property of the selected wallet.
    * @readonly
-   * @type {Observable<boolean>}
+   * @type {Observable&lt;boolean>}
    */
   readonly connected$ = this.select(({ connected }) => connected);
 
@@ -249,7 +336,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Observable for the wallet error status.
    * @description notify subscribers the value of the error property of the selected wallet.
    * @readonly
-   * @type {Observable<WalletError | null>}
+   * @type {Observable&lt;WalletError | null>}
    */
   readonly error$ = this.select(({ error }) => error);
 
@@ -264,19 +351,19 @@ export class WalletStore extends ComponentStore<WalletState> {
     this.connected$,
     (publicKey, adapter, connected) => {
       const adapterSignTransaction =
-        adapter && 'signTransaction' in adapter
+        adapter &amp;&amp; 'signTransaction' in adapter
           ? signTransaction(adapter, connected, (error) =>
               this._setError(error)
             )
           : undefined;
       const adapterSignAllTransactions =
-        adapter && 'signAllTransactions' in adapter
+        adapter &amp;&amp; 'signAllTransactions' in adapter
           ? signAllTransactions(adapter, connected, (error) =>
               this._setError(error)
             )
           : undefined;
 
-      return publicKey && adapterSignTransaction && adapterSignAllTransactions
+      return publicKey &amp;&amp; adapterSignTransaction &amp;&amp; adapterSignAllTransactions
         ? {
             publicKey,
             signTransaction: (transaction: Transaction) =>
@@ -376,7 +463,7 @@ export class WalletStore extends ComponentStore<WalletState> {
     this._adapter$.pipe(
       pairwise(),
       concatMap(([adapter]) =>
-        adapter && adapter.connected
+        adapter &amp;&amp; adapter.connected
           ? from(defer(() => adapter.disconnect()))
           : of(null)
       )
@@ -427,7 +514,7 @@ export class WalletStore extends ComponentStore<WalletState> {
         if (
           !autoConnect ||
           adapter == null ||
-          (readyState !== WalletReadyState.Installed &&
+          (readyState !== WalletReadyState.Installed &amp;&amp;
             readyState !== WalletReadyState.Loadable) ||
           connecting ||
           connected
@@ -557,10 +644,10 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Connects the adapter to the wallet.
    * @description // to do
    * @method
-   * @type {Observable<unknown>}
+   * @type {Observable&lt;unknown>}
    * @throws {WalletNotSelectedError} When there's no wallet selected.
    */
-  connect(): Observable<unknown> {
+  connect(): Observable&lt;unknown> {
     return combineLatest([
       this.connecting$,
       this.disconnecting$,
@@ -571,7 +658,7 @@ export class WalletStore extends ComponentStore<WalletState> {
       first(),
       filter(
         ([connecting, disconnecting, connected]) =>
-          !connected && !connecting && !disconnecting
+          !connected &amp;&amp; !connecting &amp;&amp; !disconnecting
       ),
       concatMap(([, , , adapter, readyState]) => {
         if (!adapter) {
@@ -614,9 +701,9 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Disconnects the adapter from the wallet.
    * @description // to do
    * @method
-   * @type {Observable<unknown>}
+   * @type {Observable&lt;unknown>}
    */
-  disconnect(): Observable<unknown> {
+  disconnect(): Observable&lt;unknown> {
     return combineLatest([this.disconnecting$, this._adapter$]).pipe(
       first(),
       filter(([disconnecting]) => !disconnecting),
@@ -648,7 +735,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @param {Transaction} transaction - The Transaction to send.
    * @param {Connection} connection - The connection used to send the transaction.
    * @param {SendTransactionOptions} options - The configurations required to send the transaction.
-   * @returns {Observable<TransactionSignature>} - Observable for the transaction signature.
+   * @returns {Observable&lt;TransactionSignature>} - Observable for the transaction signature.
    * @throws {WalletNotSelectedError} When there's no wallet selected.
    * @throws {WalletNotConnectedError} When there's no wallet conencted.
    */
@@ -656,7 +743,7 @@ export class WalletStore extends ComponentStore<WalletState> {
     transaction: Transaction,
     connection: Connection,
     options?: SendTransactionOptions
-  ): Observable<TransactionSignature> {
+  ): Observable&lt;TransactionSignature> {
     return combineLatest([this._adapter$, this.connected$]).pipe(
       first(),
       concatMap(([adapter, connected]) => {
@@ -684,14 +771,14 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description // to do
    * @method
    * @param {Transaction} transaction - The transaction to sign.
-   * @returns {Observable<Transaction> | undefined} - Observable for the signed transaction.
+   * @returns {Observable&lt;Transaction> | undefined} - Observable for the signed transaction.
    */
   signTransaction(
     transaction: Transaction
-  ): Observable<Transaction> | undefined {
+  ): Observable&lt;Transaction> | undefined {
     const { adapter, connected } = this.get();
 
-    return adapter && 'signTransaction' in adapter
+    return adapter &amp;&amp; 'signTransaction' in adapter
       ? signTransaction(adapter, connected, (error) => this._setError(error))(
           transaction
         )
@@ -703,14 +790,14 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description // to do
    * @method
    * @param {Transaction[]} transactions - List of transactions to sign
-   * @returns {Observable<Transaction[]> | undefined} - Observable for the transactions signed.
+   * @returns {Observable&lt;Transaction[]> | undefined} - Observable for the transactions signed.
    */
   signAllTransactions(
     transactions: Transaction[]
-  ): Observable<Transaction[]> | undefined {
+  ): Observable&lt;Transaction[]> | undefined {
     const { adapter, connected } = this.get();
 
-    return adapter && 'signAllTransactions' in adapter
+    return adapter &amp;&amp; 'signAllTransactions' in adapter
       ? signAllTransactions(adapter, connected, (error) =>
           this._setError(error)
         )(transactions)
@@ -722,15 +809,45 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description // to do
    * @method
    * @param {Uint8Array} message - The message to sign.
-   * @returns {Observable<Uint8Array> | undefined} - Observable for the message signed.
+   * @returns {Observable&lt;Uint8Array> | undefined} - Observable for the message signed.
    */
-  signMessage(message: Uint8Array): Observable<Uint8Array> | undefined {
+  signMessage(message: Uint8Array): Observable&lt;Uint8Array> | undefined {
     const { adapter, connected } = this.get();
 
-    return adapter && 'signMessage' in adapter
+    return adapter &amp;&amp; 'signMessage' in adapter
       ? signMessage(adapter, connected, (error) => this._setError(error))(
           message
         )
       : undefined;
   }
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

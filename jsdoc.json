@@ -1,9 +1,10 @@
 {
   "plugins": [
-    "node_modules/better-docs/typescript"
+    "node_modules/better-docs/typescript",
+    "plugins/markdown"
   ],
   "source": {
-    "include": ["./packages"],
+    "include": ["./packages", "README.md"],
     "includePattern": "\\.(jsx|js|ts|tsx)$",
     "excludePattern": "(node_modules|docs)"
   },
@@ -12,9 +13,16 @@
     "monospaceLinks": false
   },
   "opts": {
+    "tutorials": "./Tutorials",
     "recurse": true,
     "destination": "./docs",
-    "include": ["./packages"],
+    "readme": "README.md",
+    "include": [
+      "./packages",
+      "./packages/cdk-example/README.md",
+      "./packages/material-example/README.md",
+      "./packages/raw-example/README.md"
+    ],
     "template": "node_modules/better-docs"
   }
 }

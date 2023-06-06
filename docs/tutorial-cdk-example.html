@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> cdk-example</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-cdk-example.html">
+                                cdk-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-material-example.html">
+                                material-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-raw-example.html">
+                                raw-example
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar tutorials"
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-cdk-example.html">cdk-example</a></li><li><a href="tutorial-material-example.html">material-example</a></li><li><a href="tutorial-raw-example.html">raw-example</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Tutorial</p>
+                    <h1>cdk-example</h1>
+                </header>
+                <section>
+
+<article>
+    <p><img src="https://user-images.githubusercontent.com/7496781/214612489-be71f044-d5a4-4861-a4f8-0ff24cf36c5f.png" alt="Screenshot from 2023-01-25 15-49-34"></p>
+<h1>CDK Example</h1>
+<p>By following this instructions you'll be able to set up the wallet-adapter into an angular application using the headless UI package and tailwindcss.</p>
+<h2>Pre-requisites</h2>
+<p>The application should have tailwindcss already configured.</p>
+<pre class="prettyprint source"><code>&quot;rxjs&quot;: &quot;7.5.2&quot;,
+&quot;@angular/core&quot;: &quot;15.1.0&quot;,
+&quot;@ngrx/component-store&quot;: &quot;15.1.0&quot;,
+&quot;@solana/web3.js&quot;: &quot;1.73.0&quot;,
+&quot;@solana/wallet-adapter-base&quot;: &quot;0.9.20&quot;,
+&quot;@solana/wallet-adapter-phantom&quot;: &quot;0.9.19&quot;,
+&quot;@solana/wallet-adapter-solflare&quot;: &quot;0.6.21&quot;,
+</code></pre>
+<h2>Installation</h2>
+<pre class="prettyprint source"><code>$ npm install --save @heavy-duty/wallet-adapter @heavy-duty/wallet-adapter-cdk
+</code></pre>
+<h2>Usage</h2>
+<h3>Add wallet adapter module in <code>app.module.ts</code></h3>
+<p>For Angular applications using modules:</p>
+<pre class="prettyprint source lang-ts"><code>@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ... ,
+    HdWalletAdapterModule.forRoot({ autoConnect: true })
+  ],
+  providers: [
+  	...
+  ],
+  bootstrap: [
+  	...
+  ]
+}) export class AppModule {}
+</code></pre>
+<p>For Angular applications using standalone:</p>
+<pre class="prettyprint source lang-ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { provideWalletAdapter } from '@heavy-duty/wallet-adapter';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
+import { AppComponent } from './app/app.component';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideWalletAdapter({
+      autoConnect: false,
+      adapters: [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+    }),
+  ],
+}).catch((err) => console.error(err));
+</code></pre>
+<h3>Integrate wallet logic</h3>
+<p>Now we have to add some wallet interactions, it would look something like this:</p>
+<ul>
+<li>Import and inject HdWalletAdapterDirective.</li>
+<li>Use HdWalletAdapterDirective structural directive to get access to the underlying state.</li>
+</ul>
+<p>This will result in something like:</p>
+<pre class="prettyprint source lang-ts"><code>import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  HdObscureAddressPipe,
+  HdWalletAdapterDirective,
+} from '@heavy-duty/wallet-adapter-cdk';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+      class=&quot;max-w-[36rem] mx-auto my-16 border-2 border-black p-4&quot;
+    >
+      &lt;header>
+        &lt;h1 class=&quot;text-2xl text-center&quot;>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div class=&quot;my-4&quot;>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p>
+            Public Key:
+            &lt;span *ngIf=&quot;publicKey; else noWalletConnected&quot;>
+              {{ publicKey.toBase58() | hdObscureAddress }}
+            &lt;/span>
+            &lt;ng-template #noWalletConnected> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p>
+            Status:
+            &lt;span
+              [ngClass]=&quot;{
+                'text-red-600': !connected,
+                'text-green-600': connected
+              }&quot;
+            >
+              {{ connected ? 'Connected' : 'Disconnected' }}
+            &lt;/span>
+          &lt;/p>
+        &lt;/div>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [
+    NgIf,
+    NgFor,
+    NgClass,
+    HdWalletAdapterDirective,
+    HdObscureAddressPipe,
+  ],
+})
+export class AppComponent {}
+</code></pre>
+<h3>Select and connect wallet</h3>
+<p>At this moment there's no way for the user to select a wallet in our example. We have to give users a way to see the available wallets, then choose one and use that to connect. Step by step it looks like this:</p>
+<ul>
+<li>Display a connect button per wallet.</li>
+<li>Clicking a button selects the wallet and connects to it.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  HdObscureAddressPipe,
+  HdSelectAndConnectWalletDirective,
+  HdWalletAdapterDirective,
+  HdWalletIconComponent,
+} from '@heavy-duty/wallet-adapter-cdk';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+      class=&quot;max-w-[36rem] mx-auto my-16 border-2 border-black p-4&quot;
+    >
+      &lt;header>
+        &lt;h1 class=&quot;text-2xl text-center&quot;>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div class=&quot;my-4&quot;>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p>
+            Public Key:
+            &lt;span *ngIf=&quot;publicKey; else noWalletConnected&quot;>
+              {{ publicKey.toBase58() | hdObscureAddress }}
+            &lt;/span>
+            &lt;ng-template #noWalletConnected> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p>
+            Status:
+            &lt;span
+              [ngClass]=&quot;{
+                'text-red-600': !connected,
+                'text-green-600': connected
+              }&quot;
+            >
+              {{ connected ? 'Connected' : 'Disconnected' }}
+            &lt;/span>
+          &lt;/p>
+        &lt;/div>
+
+        &lt;div class=&quot;flex gap-4&quot;>
+          &lt;button
+            #hdSelectAndConnectWallet=&quot;hdSelectAndConnectWallet&quot;
+            *ngFor=&quot;let wallet of wallets; let i = index&quot;
+            class=&quot;flex justify-center items-center gap-2 px-4 py-2 bg-violet-800 text-white rounded-md disabled:cursor-not-allowed&quot;
+            [disabled]=&quot;connected || wallet === null&quot;
+            (click)=&quot;hdSelectAndConnectWallet.run(wallet.adapter.name)&quot;
+            (hdConnectWalletStarts)=&quot;onConnectWalletStarts()&quot;
+            (hdConnectWalletError)=&quot;onConnectWalletError($event)&quot;
+            (hdWalletConnected)=&quot;onWalletConnected()&quot;
+            hdSelectAndConnectWallet
+          >
+            &lt;span> Connect &lt;/span>
+
+            &lt;hd-wallet-icon [hdWallet]=&quot;wallet&quot;>&lt;/hd-wallet-icon>
+          &lt;/button>
+        &lt;/div>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [
+    NgIf,
+    NgFor,
+    NgClass,
+    HdSelectAndConnectWalletDirective,
+    HdWalletAdapterDirective,
+    HdObscureAddressPipe,
+    HdWalletIconComponent,
+  ],
+})
+export class AppComponent {
+  onWalletConnected() {
+    console.log('Wallet connected');
+  }
+
+  onConnectWalletStarts() {
+    console.log('Starting to connect wallet');
+  }
+
+  onConnectWalletError(error: unknown) {
+    console.error(error);
+  }
+}
+</code></pre>
+<h3>Disconnect wallet</h3>
+<p>Now that users can finally select and connect their wallet it's time for us to let them disconnect. For this we'll follow the next steps:</p>
+<ul>
+<li>Import and inject HdDisconnectWalletDirective.</li>
+<li>Use disconnect wallet directive in a button.</li>
+<li>Log events from disconnect wallet.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  HdDisconnectWalletDirective,
+  HdObscureAddressPipe,
+  HdSelectAndConnectWalletDirective,
+  HdWalletAdapterDirective,
+  HdWalletIconComponent,
+} from '@heavy-duty/wallet-adapter-cdk';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+      class=&quot;max-w-[36rem] mx-auto my-16 border-2 border-black p-4&quot;
+    >
+      &lt;header>
+        &lt;h1 class=&quot;text-2xl text-center&quot;>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div class=&quot;my-4&quot;>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p>
+            Public Key:
+            &lt;span *ngIf=&quot;publicKey; else noWalletConnected&quot;>
+              {{ publicKey.toBase58() | hdObscureAddress }}
+            &lt;/span>
+            &lt;ng-template #noWalletConnected> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p>
+            Status:
+            &lt;span
+              [ngClass]=&quot;{
+                'text-red-600': !connected,
+                'text-green-600': connected
+              }&quot;
+            >
+              {{ connected ? 'Connected' : 'Disconnected' }}
+            &lt;/span>
+          &lt;/p>
+        &lt;/div>
+
+        &lt;div class=&quot;flex gap-4&quot;>
+          &lt;button
+            #hdSelectAndConnectWallet=&quot;hdSelectAndConnectWallet&quot;
+            *ngFor=&quot;let wallet of wallets; let i = index&quot;
+            class=&quot;flex justify-center items-center gap-2 px-4 py-2 bg-violet-800 text-white rounded-md disabled:cursor-not-allowed&quot;
+            [disabled]=&quot;connected || wallet === null&quot;
+            (click)=&quot;hdSelectAndConnectWallet.run(wallet.adapter.name)&quot;
+            (hdConnectWalletStarts)=&quot;onConnectWalletStarts()&quot;
+            (hdConnectWalletError)=&quot;onConnectWalletError($event)&quot;
+            (hdWalletConnected)=&quot;onWalletConnected()&quot;
+            hdSelectAndConnectWallet
+          >
+            &lt;span> Connect &lt;/span>
+
+            &lt;hd-wallet-icon [hdWallet]=&quot;wallet&quot;>&lt;/hd-wallet-icon>
+          &lt;/button>
+
+          &lt;button
+            #hdDisconnectWallet=&quot;hdDisconnectWallet&quot;
+            *ngIf=&quot;wallet&quot;
+            class=&quot;flex justify-center items-center gap-2 px-4 py-2 bg-red-400 rounded-md disabled:cursor-not-allowed&quot;
+            [disabled]=&quot;!connected&quot;
+            (click)=&quot;hdDisconnectWallet.run()&quot;
+            (hdDisconnectWalletStarts)=&quot;onDisconnectWalletStarts()&quot;
+            (hdDisconnectWalletError)=&quot;onDisconnectWalletError($event)&quot;
+            (hdWalletDisconnected)=&quot;onWalletDisconnected()&quot;
+            hdDisconnectWallet
+          >
+            &lt;span> Disconnect &lt;/span>
+
+            &lt;hd-wallet-icon [hdWallet]=&quot;wallet&quot;>&lt;/hd-wallet-icon>
+          &lt;/button>
+        &lt;/div>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [
+    NgIf,
+    NgFor,
+    NgClass,
+    HdSelectAndConnectWalletDirective,
+    HdDisconnectWalletDirective,
+    HdWalletAdapterDirective,
+    HdObscureAddressPipe,
+    HdWalletIconComponent,
+  ],
+})
+export class AppComponent {
+  onWalletDisconnected() {
+    console.log('Wallet disconnected');
+  }
+
+  onDisconnectWalletStarts() {
+    console.log('Starting to disconnect wallet');
+  }
+
+  onDisconnectWalletError(error: unknown) {
+    console.error(error);
+  }
+}
+</code></pre>
+<h3>Sign message</h3>
+<p>Now that the user has connected a wallet, is time to do something with it. We'll start by signing a message. Step by step it looks like this:</p>
+<ul>
+<li>A message input for the user to write the message.</li>
+<li>Add a <code>message</code> property to hold the message.</li>
+<li>Use the <code>HdEncodeText</code> pipe to transform the message into an encoded message.</li>
+<li>Run the <code>HdSignMessage</code> action and pass in the encoded message.</li>
+<li>Set up handler methods for the action start, success and error.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import {
+  HdDisconnectWalletDirective,
+  HdEncodeTextPipe,
+  HdObscureAddressPipe,
+  HdSelectAndConnectWalletDirective,
+  HdSignMessageDirective,
+  HdWalletAdapterDirective,
+  HdWalletIconComponent,
+} from '@heavy-duty/wallet-adapter-cdk';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+      class=&quot;max-w-[36rem] mx-auto my-16 border-2 border-black p-4&quot;
+    >
+      &lt;header>
+        &lt;h1 class=&quot;text-2xl text-center&quot;>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div class=&quot;my-4&quot;>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p>
+            Public Key:
+            &lt;span *ngIf=&quot;publicKey !== null; else noWalletConnected&quot;>
+              {{ publicKey.toBase58() | hdObscureAddress }}
+            &lt;/span>
+            &lt;ng-template #noWalletConnected> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p>
+            Status:
+            &lt;span
+              [ngClass]=&quot;{
+                'text-red-600': !connected,
+                'text-green-600': connected
+              }&quot;
+            >
+              {{ connected ? 'Connected' : 'Disconnected' }}
+            &lt;/span>
+          &lt;/p>
+
+          &lt;div *ngIf=&quot;publicKey !== null&quot;>
+            &lt;p>Sign a Message&lt;/p>
+            &lt;form
+              #hdSignMessage=&quot;hdSignMessage&quot;
+              *ngIf=&quot;message | hdEncodeText as encodedMessage&quot;
+              (ngSubmit)=&quot;hdSignMessage.run(encodedMessage)&quot;
+              (hdSignMessageStarts)=&quot;onSignMessageStarts()&quot;
+              (hdSignMessageError)=&quot;onSignMessageError($event)&quot;
+              (hdMessageSigned)=&quot;onMessageSigned($event)&quot;
+              hdSignMessage
+            >
+              &lt;label class=&quot;mr-2&quot; for=&quot;message-form-content&quot;>Message: &lt;/label>
+              &lt;input
+                id=&quot;message-form-content&quot;
+                class=&quot;px-2 py-1 border-2 border-black rounded-md mr-2&quot;
+                [(ngModel)]=&quot;message&quot;
+                type=&quot;text&quot;
+                name=&quot;content&quot;
+              />
+              &lt;button
+                class=&quot;px-4 py-2 bg-violet-800 text-white rounded-md disabled:cursor-not-allowed&quot;
+                type=&quot;submit&quot;
+              >
+                Sign
+              &lt;/button>
+            &lt;/form>
+          &lt;/div>
+        &lt;/div>
+
+        &lt;div class=&quot;flex gap-4&quot;>
+          &lt;button
+            #hdSelectAndConnectWallet=&quot;hdSelectAndConnectWallet&quot;
+            *ngFor=&quot;let wallet of wallets; let i = index&quot;
+            class=&quot;flex justify-center items-center gap-2 px-4 py-2 bg-violet-800 text-white rounded-md disabled:cursor-not-allowed&quot;
+            [disabled]=&quot;connected || wallet === null&quot;
+            (click)=&quot;hdSelectAndConnectWallet.run(wallet.adapter.name)&quot;
+            (hdConnectWalletStarts)=&quot;onConnectWalletStarts()&quot;
+            (hdConnectWalletError)=&quot;onConnectWalletError($event)&quot;
+            (hdWalletConnected)=&quot;onWalletConnected()&quot;
+            hdSelectAndConnectWallet
+          >
+            &lt;span> Connect &lt;/span>
+
+            &lt;hd-wallet-icon [hdWallet]=&quot;wallet&quot;>&lt;/hd-wallet-icon>
+          &lt;/button>
+
+          &lt;button
+            #hdDisconnectWallet=&quot;hdDisconnectWallet&quot;
+            *ngIf=&quot;wallet&quot;
+            class=&quot;flex justify-center items-center gap-2 px-4 py-2 bg-red-400 rounded-md disabled:cursor-not-allowed&quot;
+            [disabled]=&quot;!connected&quot;
+            (click)=&quot;hdDisconnectWallet.run()&quot;
+            (hdDisconnectWalletStarts)=&quot;onDisconnectWalletStarts()&quot;
+            (hdDisconnectWalletError)=&quot;onDisconnectWalletError($event)&quot;
+            (hdWalletDisconnected)=&quot;onWalletDisconnected()&quot;
+            hdDisconnectWallet
+          >
+            &lt;span> Disconnect &lt;/span>
+
+            &lt;hd-wallet-icon [hdWallet]=&quot;wallet&quot;>&lt;/hd-wallet-icon>
+          &lt;/button>
+        &lt;/div>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [
+    NgIf,
+    NgFor,
+    NgClass,
+    FormsModule,
+    HdSelectAndConnectWalletDirective,
+    HdDisconnectWalletDirective,
+    HdWalletAdapterDirective,
+    HdObscureAddressPipe,
+    HdWalletIconComponent,
+    HdSignMessageDirective,
+    HdEncodeTextPipe,
+  ],
+})
+export class AppComponent {
+  message = '';
+
+  onWalletConnected() {
+    console.log('Wallet connected');
+  }
+
+  onConnectWalletStarts() {
+    console.log('Starting to connect wallet');
+  }
+
+  onConnectWalletError(error: unknown) {
+    console.error(error);
+  }
+
+  onWalletDisconnected() {
+    console.log('Wallet disconnected');
+  }
+
+  onDisconnectWalletStarts() {
+    console.log('Starting to disconnect wallet');
+  }
+
+  onDisconnectWalletError(error: unknown) {
+    console.error(error);
+  }
+
+  onMessageSigned(signature: Uint8Array) {
+    console.log('Message signed', signature);
+  }
+
+  onSignMessageStarts() {
+    console.log('Starting to sign message');
+  }
+
+  onSignMessageError(error: unknown) {
+    console.error(error);
+  }
+}
+</code></pre>
+<p>You can <a href="/packages/cdk-example/">access the final code</a> if you'd rather copy the application.</p>
+</article>
+
+</section>
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

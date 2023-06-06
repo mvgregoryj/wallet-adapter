@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> raw-example</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-cdk-example.html">
+                                cdk-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-material-example.html">
+                                material-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-raw-example.html">
+                                raw-example
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar tutorials"
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-cdk-example.html">cdk-example</a></li><li><a href="tutorial-material-example.html">material-example</a></li><li><a href="tutorial-raw-example.html">raw-example</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Tutorial</p>
+                    <h1>raw-example</h1>
+                </header>
+                <section>
+
+<article>
+    <p><img src="https://user-images.githubusercontent.com/7496781/214612294-403ad4e6-0eeb-4b04-8c3a-17e1defb085c.png" alt="Screenshot from 2023-01-25 15-48-58"></p>
+<h1>Raw Example</h1>
+<p>By following this instructions you'll be able to set up the wallet-adapter into an angular application without any of the UI packages available.</p>
+<h2>Pre-requisites</h2>
+<pre class="prettyprint source"><code>&quot;rxjs&quot;: &quot;7.5.2&quot;,
+&quot;@angular/core&quot;: &quot;15.1.0&quot;,
+&quot;@ngrx/component-store&quot;: &quot;15.1.0&quot;,
+&quot;@solana/web3.js&quot;: &quot;1.73.0&quot;,
+&quot;@solana/wallet-adapter-base&quot;: &quot;0.9.20&quot;,
+&quot;@solana/wallet-adapter-phantom&quot;: &quot;0.9.19&quot;,
+&quot;@solana/wallet-adapter-solflare&quot;: &quot;0.6.21&quot;,
+</code></pre>
+<h2>Installation</h2>
+<pre class="prettyprint source"><code>$ npm install --save @heavy-duty/wallet-adapter
+</code></pre>
+<h2>Usage</h2>
+<h3>Add wallet adapter module in <code>app.module.ts</code></h3>
+<p>For Angular applications using modules:</p>
+<pre class="prettyprint source lang-ts"><code>@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ... ,
+    HdWalletAdapterModule.forRoot({ autoConnect: true })
+  ],
+  providers: [
+  	...
+  ],
+  bootstrap: [
+  	...
+  ]
+}) export class AppModule {}
+</code></pre>
+<p>For Angular applications using standalone:</p>
+<pre class="prettyprint source lang-ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { provideWalletAdapter } from '@heavy-duty/wallet-adapter';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
+import { AppComponent } from './app/app.component';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideWalletAdapter({
+      autoConnect: false,
+      adapters: [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+    }),
+  ],
+}).catch((err) => console.error(err));
+</code></pre>
+<h3>Integrate wallet logic</h3>
+<p>Now we have to add some wallet interactions, it would look something like this:</p>
+<ul>
+<li>Display wallet selected, it's public key and the status of it.</li>
+<li>Allow users to connect the selected wallet.</li>
+<li>Allow users to disconnect the wallet.</li>
+</ul>
+<p>This will result in something like:</p>
+<pre class="prettyprint source lang-ts"><code>import { AsyncPipe, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { WalletStore } from '@heavy-duty/wallet-adapter';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main>
+      &lt;header>
+        &lt;h1>Wallet Adapter Example (Raw)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div>
+          &lt;p>
+            Wallet:
+            &lt;ng-container *ngIf=&quot;wallet$ | async as wallet; else noneWallet&quot;>
+              {{ wallet.adapter.name }}
+            &lt;/ng-container>
+            &lt;ng-template #noneWallet> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p *ngIf=&quot;publicKey$ | async as publicKey&quot;>
+            Public Key: {{ publicKey.toBase58() }}
+          &lt;/p>
+
+          &lt;p>
+            Status: {{ (connected$ | async) ? 'connected' : 'disconnected' }}
+          &lt;/p>
+        &lt;/div>
+
+        &lt;button
+          [disabled]=&quot;connected$ | async || (wallet$ | async) === null&quot;
+          (click)=&quot;onConnect()&quot;
+        >
+          Connect
+        &lt;/button>
+        &lt;button
+          [disabled]=&quot;(connected$ | async) === false&quot;
+          (click)=&quot;onDisconnect()&quot;
+        >
+          Disconnect
+        &lt;/button>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [NgIf, AsyncPipe],
+})
+export class AppComponent {
+  private readonly _walletStore = inject(WalletStore);
+
+  readonly connected$ = this._walletStore.connected$;
+  readonly publicKey$ = this._walletStore.publicKey$;
+  readonly wallet$ = this._walletStore.wallet$;
+
+  onConnect() {
+    this._walletStore.connect().subscribe();
+  }
+
+  onDisconnect() {
+    this._walletStore.disconnect().subscribe();
+  }
+}
+</code></pre>
+<h3>Select wallet</h3>
+<p>At this moment there's no way for the user to select a wallet in our example. We have to give users a way to see the available wallets, then choose one and use that to connect. Step by step it looks like this:</p>
+<ul>
+<li>Display all wallets in a radio button group.</li>
+<li>Add a <code>selectWalletControl</code> form control.</li>
+<li>Bind the wallet store and the form control.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { WalletStore } from '@heavy-duty/wallet-adapter';
+import { WalletName } from '@solana/wallet-adapter-base';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main>
+      &lt;header>
+        &lt;h1>Wallet Adapter Example (Raw)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div>
+          &lt;p>
+            Wallet:
+            &lt;ng-container *ngIf=&quot;wallet$ | async as wallet; else noneWallet&quot;>
+              {{ wallet.adapter.name }}
+            &lt;/ng-container>
+            &lt;ng-template #noneWallet> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p *ngIf=&quot;publicKey$ | async as publicKey&quot;>
+            Public Key: {{ publicKey.toBase58() }}
+          &lt;/p>
+
+          &lt;p>
+            Status: {{ (connected$ | async) ? 'connected' : 'disconnected' }}
+          &lt;/p>
+        &lt;/div>
+
+        &lt;fieldset>
+          &lt;legend>Select a wallet:&lt;/legend>
+
+          &lt;div>
+            &lt;input
+              id=&quot;select-wallet-empty&quot;
+              [formControl]=&quot;selectWalletControl&quot;
+              [value]=&quot;null&quot;
+              type=&quot;radio&quot;
+              name=&quot;walletName&quot;
+            />
+            &lt;label for=&quot;select-wallet-empty&quot;>None&lt;/label>
+          &lt;/div>
+
+          &lt;div *ngFor=&quot;let wallet of wallets$ | async; let i = index&quot;>
+            &lt;input
+              [id]=&quot;'select-wallet-' + i&quot;
+              [formControl]=&quot;selectWalletControl&quot;
+              [value]=&quot;wallet.adapter.name&quot;
+              type=&quot;radio&quot;
+              name=&quot;walletName&quot;
+            />
+            &lt;label [for]=&quot;'select-wallet-' + i&quot;>
+              {{ wallet.adapter.name }}
+            &lt;/label>
+          &lt;/div>
+        &lt;/fieldset>
+
+        &lt;button
+          [disabled]=&quot;connected$ | async || (wallet$ | async) === null&quot;
+          (click)=&quot;onConnect()&quot;
+        >
+          Connect
+        &lt;/button>
+        &lt;button
+          [disabled]=&quot;(connected$ | async) === false&quot;
+          (click)=&quot;onDisconnect()&quot;
+        >
+          Disconnect
+        &lt;/button>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [NgIf, NgFor, AsyncPipe, ReactiveFormsModule],
+})
+export class AppComponent implements OnInit {
+  private readonly _walletStore = inject(WalletStore);
+  private readonly _formBuilder = inject(FormBuilder);
+
+  readonly selectWalletControl = this._formBuilder.control&lt;WalletName | null>(
+    null,
+    [Validators.required]
+  );
+
+  readonly connected$ = this._walletStore.connected$;
+  readonly publicKey$ = this._walletStore.publicKey$;
+  readonly wallets$ = this._walletStore.wallets$;
+  readonly wallet$ = this._walletStore.wallet$;
+
+  ngOnInit() {
+    this._walletStore.wallet$.subscribe((wallet) =>
+      this.selectWalletControl.setValue(wallet?.adapter.name ?? null, {
+        emitEvent: false,
+      })
+    );
+
+    this.selectWalletControl.valueChanges.subscribe((wallet) => {
+      this._walletStore.selectWallet(wallet);
+    });
+  }
+
+  onConnect() {
+    this._walletStore.connect().subscribe();
+  }
+
+  onDisconnect() {
+    this._walletStore.disconnect().subscribe();
+  }
+}
+</code></pre>
+<h3>Sign message</h3>
+<p>Now that the user has connected a wallet, is time to do something with it. We'll start by signing a message. Step by step it looks like this:</p>
+<ul>
+<li>A message input for the user to write the message.</li>
+<li>Add a <code>messageControl</code> form control.</li>
+<li>Add a <code>onSignMessage</code> method that gets the raw message, encodes it and signs it.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { WalletStore } from '@heavy-duty/wallet-adapter';
+import { WalletName } from '@solana/wallet-adapter-base';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main>
+      &lt;header>
+        &lt;h1>Wallet Adapter Example (Raw)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div>
+          &lt;p>
+            Wallet:
+            &lt;ng-container *ngIf=&quot;wallet$ | async as wallet; else noneWallet&quot;>
+              {{ wallet.adapter.name }}
+            &lt;/ng-container>
+            &lt;ng-template #noneWallet> None &lt;/ng-template>
+          &lt;/p>
+
+          &lt;p *ngIf=&quot;publicKey$ | async as publicKey&quot;>
+            Public Key: {{ publicKey.toBase58() }}
+          &lt;/p>
+
+          &lt;p>
+            Status: {{ (connected$ | async) ? 'connected' : 'disconnected' }}
+          &lt;/p>
+
+          &lt;div *ngIf=&quot;publicKey$ | async as publicKey&quot;>
+            &lt;label class=&quot;mr-2&quot; for=&quot;message-form-content&quot;
+              >Sign Message:
+            &lt;/label>
+            &lt;input
+              id=&quot;message-form-content&quot;
+              class=&quot;px-2 py-1 border-2 border-black rounded-md mr-2&quot;
+              [formControl]=&quot;messageControl&quot;
+              type=&quot;text&quot;
+              name=&quot;content&quot;
+            />
+            &lt;button
+              class=&quot;px-4 py-2 bg-violet-800 text-white rounded-md disabled:cursor-not-allowed&quot;
+              (click)=&quot;onSignMessage()&quot;
+              type=&quot;submit&quot;
+            >
+              Sign
+            &lt;/button>
+          &lt;/div>
+        &lt;/div>
+
+        &lt;fieldset>
+          &lt;legend>Select a wallet:&lt;/legend>
+
+          &lt;div>
+            &lt;input
+              id=&quot;select-wallet-empty&quot;
+              [formControl]=&quot;selectWalletControl&quot;
+              [value]=&quot;null&quot;
+              type=&quot;radio&quot;
+              name=&quot;walletName&quot;
+            />
+            &lt;label for=&quot;select-wallet-empty&quot;>None&lt;/label>
+          &lt;/div>
+
+          &lt;div *ngFor=&quot;let wallet of wallets$ | async; let i = index&quot;>
+            &lt;input
+              [id]=&quot;'select-wallet-' + i&quot;
+              [formControl]=&quot;selectWalletControl&quot;
+              [value]=&quot;wallet.adapter.name&quot;
+              type=&quot;radio&quot;
+              name=&quot;walletName&quot;
+            />
+            &lt;label [for]=&quot;'select-wallet-' + i&quot;>
+              {{ wallet.adapter.name }}
+            &lt;/label>
+          &lt;/div>
+        &lt;/fieldset>
+
+        &lt;button
+          [disabled]=&quot;(connected$ | async) || (wallet$ | async) === null&quot;
+          (click)=&quot;onConnect()&quot;
+        >
+          Connect
+        &lt;/button>
+        &lt;button
+          [disabled]=&quot;(connected$ | async) === false&quot;
+          (click)=&quot;onDisconnect()&quot;
+        >
+          Disconnect
+        &lt;/button>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [NgIf, NgFor, AsyncPipe, ReactiveFormsModule],
+})
+export class AppComponent implements OnInit {
+  private readonly _walletStore = inject(WalletStore);
+  private readonly _formBuilder = inject(FormBuilder);
+
+  readonly selectWalletControl = this._formBuilder.control&lt;WalletName | null>(
+    null,
+    [Validators.required]
+  );
+  readonly messageControl = this._formBuilder.control&lt;string>('', {
+    nonNullable: true,
+  });
+
+  readonly connected$ = this._walletStore.connected$;
+  readonly publicKey$ = this._walletStore.publicKey$;
+  readonly wallets$ = this._walletStore.wallets$;
+  readonly wallet$ = this._walletStore.wallet$;
+
+  ngOnInit() {
+    this._walletStore.wallet$.subscribe((wallet) =>
+      this.selectWalletControl.setValue(wallet?.adapter.name ?? null, {
+        emitEvent: false,
+      })
+    );
+
+    this.selectWalletControl.valueChanges.subscribe((walletName) => {
+      this._walletStore.selectWallet(walletName);
+      console.log(`Wallet selected: ${walletName}`);
+    });
+  }
+
+  onConnect() {
+    console.log('Starting to connect wallet');
+
+    this._walletStore.connect().subscribe({
+      next: () => console.log('Wallet connected'),
+      error: (error) => console.error(error),
+    });
+  }
+
+  onDisconnect() {
+    console.log('Starting to disconnect wallet');
+
+    this._walletStore.disconnect().subscribe({
+      next: () => console.log('Wallet disconnected'),
+      error: (error) => console.error(error),
+    });
+  }
+
+  onSignMessage() {
+    const message = this.messageControl.getRawValue();
+    const encodedMessage = new TextEncoder().encode(message);
+    const signMessage$ = this._walletStore.signMessage(encodedMessage);
+
+    if (!signMessage$) {
+      console.error('Wallet is not capable of message signing.');
+    } else {
+      signMessage$.subscribe({
+        next: (signature) => console.log('Message signed', signature),
+        error: (error) => console.error(error),
+      });
+    }
+  }
+}
+</code></pre>
+<p>You can <a href="/packages/raw-example/">access the final code</a> if you'd rather copy the application.</p>
+</article>
+
+</section>
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

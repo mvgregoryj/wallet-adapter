@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> material-example</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-cdk-example.html">
+                                cdk-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-material-example.html">
+                                material-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-raw-example.html">
+                                raw-example
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar tutorials"
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-cdk-example.html">cdk-example</a></li><li><a href="tutorial-material-example.html">material-example</a></li><li><a href="tutorial-raw-example.html">raw-example</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Tutorial</p>
+                    <h1>material-example</h1>
+                </header>
+                <section>
+
+<article>
+    <p><img src="https://user-images.githubusercontent.com/7496781/213252669-11daf2f3-008c-4251-8d09-2bc9cb84d744.png" alt="Screenshot from 2023-01-18 17-17-53"></p>
+<h1>Material Example</h1>
+<p>By following this instructions you'll be able to set up the wallet-adapter into an angular application using the material package.</p>
+<h2>Pre-requisites</h2>
+<pre class="prettyprint source"><code>&quot;rxjs&quot;: &quot;7.5.2&quot;,
+&quot;@angular/core&quot;: &quot;15.1.0&quot;,
+&quot;@ngrx/component-store&quot;: &quot;15.1.0&quot;,
+&quot;@solana/web3.js&quot;: &quot;1.73.0&quot;,
+&quot;@solana/wallet-adapter-base&quot;: &quot;0.9.20&quot;,
+&quot;@solana/wallet-adapter-phantom&quot;: &quot;0.9.19&quot;,
+&quot;@solana/wallet-adapter-solflare&quot;: &quot;0.6.21&quot;,
+</code></pre>
+<h2>Installation</h2>
+<pre class="prettyprint source"><code>$ npm install --save @heavy-duty/wallet-adapter @heavy-duty/wallet-adapter-cdk @heavy-duty/wallet-adapter-material
+</code></pre>
+<h2>Usage</h2>
+<h3>Add wallet adapter module in <code>app.module.ts</code></h3>
+<p>For Angular applications using modules:</p>
+<pre class="prettyprint source lang-ts"><code>@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ... ,
+    HdWalletAdapterModule.forRoot({ autoConnect: true })
+  ],
+  providers: [
+  	...
+  ],
+  bootstrap: [
+  	...
+  ]
+}) export class AppModule {}
+</code></pre>
+<p>For Angular applications using standalone:</p>
+<pre class="prettyprint source lang-ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { provideWalletAdapter } from '@heavy-duty/wallet-adapter';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
+import { AppComponent } from './app/app.component';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideWalletAdapter({
+      autoConnect: false,
+      adapters: [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+    }),
+  ],
+}).catch((err) => console.error(err));
+</code></pre>
+<p>NOTE: Don't forget to properly <a href="https://material.angular.io/guide/getting-started">setup Angular Material</a>.</p>
+<h3>Integrate wallet logic</h3>
+<p>Now we have to add some wallet interactions, it would look something like this:</p>
+<ul>
+<li>Import and inject HdWalletAdapterDirective.</li>
+<li>Use HdWalletAdapterDirective structural directive to get access to the underlying state.</li>
+</ul>
+<p>This will result in something like:</p>
+<pre class="prettyprint source lang-ts"><code>import { AsyncPipe, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { provideWalletAdapter, WalletStore } from '@heavy-duty/wallet-adapter';
+import {
+  HdWalletAdapterDirective,
+  HdObscureAddressPipe,
+} from '@heavy-duty/wallet-adapter/cdk';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+    >
+      &lt;header>
+        &lt;h1>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p *ngIf=&quot;publicKey&quot;>
+            Public Key: {{ publicKey.toBase58() | hdObscureAddress }}
+          &lt;/p>
+
+          &lt;p>Status: {{ connected ? 'connected' : 'disconnected' }}&lt;/p>
+        &lt;/div>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [NgIf, HdWalletAdapterDirective, HdObscureAddressPipe],
+})
+export class AppComponent {}
+</code></pre>
+<h3>Multi Button integration</h3>
+<p>At this moment there's no way for the user to select a wallet in our example. We have to give users a way to see the available wallets, then choose one and use that to connect. Step by step it looks like this:</p>
+<ul>
+<li>Import multi button from the material library.</li>
+</ul>
+<p>A simplified version of this would end up like this:</p>
+<pre class="prettyprint source lang-ts"><code>import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  HdObscureAddressPipe,
+  HdWalletAdapterDirective,
+} from '@heavy-duty/wallet-adapter-cdk';
+import { HdWalletMultiButtonComponent } from '@heavy-duty/wallet-adapter-material';
+
+@Component({
+  standalone: true,
+  selector: 'hd-root',
+  template: `
+    &lt;main
+      *hdWalletAdapter=&quot;
+        let wallet = wallet;
+        let connected = connected;
+        let publicKey = publicKey;
+        let wallets = wallets
+      &quot;
+    >
+      &lt;header>
+        &lt;h1>Wallet Adapter Example (CDK)&lt;/h1>
+      &lt;/header>
+
+      &lt;section>
+        &lt;div>
+          &lt;p>
+            Wallet:
+            {{ wallet !== null ? wallet.adapter.name : 'None' }}
+          &lt;/p>
+
+          &lt;p *ngIf=&quot;publicKey&quot;>
+            Public Key: {{ publicKey.toBase58() | hdObscureAddress }}
+          &lt;/p>
+
+          &lt;p>Status: {{ connected ? 'connected' : 'disconnected' }}&lt;/p>
+        &lt;/div>
+
+        &lt;hd-wallet-multi-button>&lt;/hd-wallet-multi-button>
+      &lt;/section>
+    &lt;/main>
+  `,
+  imports: [
+    NgIf,
+    HdWalletAdapterDirective,
+    HdObscureAddressPipe,
+    HdWalletMultiButtonComponent,
+  ],
+})
+export class AppComponent {}
+</code></pre>
+<p>You can <a href="/packages/material-example/">access the final code</a> if you'd rather copy the application.</p>
+</article>
+
+</section>
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

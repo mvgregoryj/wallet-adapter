@@ -52,6 +52,30 @@
                     Documentation
                 </a>
                 
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-cdk-example.html">
+                                cdk-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-material-example.html">
+                                material-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-raw-example.html">
+                                raw-example
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
                 
                 
             </div>
@@ -118,7 +142,7 @@
     
     
     <div class="description">
-        sets up the initial wallet state.
+        <p>sets up the initial wallet state.</p>
     </div>
     
 
@@ -172,7 +196,7 @@
 
   
 
-  <td class="description last">The configuration of the wallet.</td>
+  <td class="description last"><p>The configuration of the wallet.</p></td>
 </tr>
 
 
@@ -290,7 +314,7 @@
 
 
 <div class="description">
-    handles the wallet's signTransaction and signAllTransactions methods if supported by the adapter
+    <p>handles the wallet's signTransaction and signAllTransactions methods if supported by the adapter</p>
 </div>
 
 
@@ -371,7 +395,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the autoConnect optional property of the wallet.
+    <p>notify subscribers the value of the autoConnect optional property of the wallet.</p>
 </div>
 
 
@@ -452,7 +476,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the connected property of the selected wallet.
+    <p>notify subscribers the value of the connected property of the selected wallet.</p>
 </div>
 
 
@@ -533,7 +557,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the connecting property of the selected wallet.
+    <p>notify subscribers the value of the connecting property of the selected wallet.</p>
 </div>
 
 
@@ -614,7 +638,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the disconnecting property of the selected wallet.
+    <p>notify subscribers the value of the disconnecting property of the selected wallet.</p>
 </div>
 
 
@@ -695,7 +719,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the error property of the selected wallet.
+    <p>notify subscribers the value of the error property of the selected wallet.</p>
 </div>
 
 
@@ -776,7 +800,7 @@
 
 
 <div class="description">
-    notify subscribers the value of the public key of the selected wallet.
+    <p>notify subscribers the value of the public key of the selected wallet.</p>
 </div>
 
 
@@ -857,7 +881,7 @@
 
 
 <div class="description">
-    notifiy subscribers the value of the selected wallet.
+    <p>notifiy subscribers the value of the selected wallet.</p>
 </div>
 
 
@@ -938,7 +962,7 @@
 
 
 <div class="description">
-    notify the subscribers the value of the available list of wallets
+    <p>notify the subscribers the value of the available list of wallets</p>
 </div>
 
 
@@ -1019,7 +1043,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -1098,7 +1122,7 @@
                     
 <div class="columns">
     
-    <div class='param-desc column is-7'>When there's no wallet selected.</div>
+    <div class='param-desc column is-7'><p>When there's no wallet selected.</p></div>
     <div class='column is-5 has-text-left'>
         <label>Type: </label>
 <code class="param-type">WalletNotSelectedError</code>
@@ -1160,7 +1184,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -1280,7 +1304,7 @@
     
     
     <div class="description">
-        When the adapter change, disconnects the previous adapter, updates the readyState for newly selected adapter and informs the subscribers the new status of the wallet.
+        <p>When the adapter change, disconnects the previous adapter, updates the readyState for newly selected adapter and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -1377,7 +1401,7 @@
     
     
     <div class="description">
-        If autoConnect is enabled, tries to connect the wallet when any change occurs, such as window reload.
+        <p>If autoConnect is enabled, tries to connect the wallet when any change occurs, such as window reload.</p>
     </div>
     
 
@@ -1474,7 +1498,7 @@
     
     
     <div class="description">
-        When the wallet connects, updates the state and informs the subscribers the new status of the wallet.
+        <p>When the wallet connects, updates the state and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -1571,7 +1595,7 @@
     
     
     <div class="description">
-        When the wallet disconnects, remove the previos wallet data, updates the state and informs the subscribers the new status of the wallet.
+        <p>When the wallet disconnects, remove the previos wallet data, updates the state and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -1668,7 +1692,7 @@
     
     
     <div class="description">
-        When an error occurs, updates the state and informs the subscribers the new status of the wallet.
+        <p>When an error occurs, updates the state and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -1765,7 +1789,7 @@
     
     
     <div class="description">
-        When the readyState of an adapter change, updates all the adapters readyState properties and informs the subscribers of the new state.
+        <p>When the readyState of an adapter change, updates all the adapters readyState properties and informs the subscribers of the new state.</p>
     </div>
     
 
@@ -1862,7 +1886,7 @@
     
     
     <div class="description">
-        When the wallet changes, initialize the wallet state for newly selected wallet and informs the subscribers the new status of the wallet.
+        <p>When the wallet changes, initialize the wallet state for newly selected wallet and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -1959,7 +1983,7 @@
     
     
     <div class="description">
-        If the window is closing or reloading, ignore the adapter's disconnect and error events.
+        <p>If the window is closing or reloading, ignore the adapter's disconnect and error events.</p>
     </div>
     
 
@@ -2056,7 +2080,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -2110,7 +2134,7 @@
 
   
 
-  <td class="description last">The new wallet selected.</td>
+  <td class="description last"><p>The new wallet selected.</p></td>
 </tr>
 
 
@@ -2227,7 +2251,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -2281,7 +2305,7 @@
 
   
 
-  <td class="description last">The Transaction to send.</td>
+  <td class="description last"><p>The Transaction to send.</p></td>
 </tr>
 
 
@@ -2306,7 +2330,7 @@
 
   
 
-  <td class="description last">The connection used to send the transaction.</td>
+  <td class="description last"><p>The connection used to send the transaction.</p></td>
 </tr>
 
 
@@ -2331,7 +2355,7 @@
 
   
 
-  <td class="description last">The configurations required to send the transaction.</td>
+  <td class="description last"><p>The configurations required to send the transaction.</p></td>
 </tr>
 
 
@@ -2407,7 +2431,7 @@
                     
 <div class="columns">
     
-    <div class='param-desc column is-7'>When there's no wallet selected.</div>
+    <div class='param-desc column is-7'><p>When there's no wallet selected.</p></div>
     <div class='column is-5 has-text-left'>
         <label>Type: </label>
 <code class="param-type">WalletNotSelectedError</code>
@@ -2421,7 +2445,7 @@
                     
 <div class="columns">
     
-    <div class='param-desc column is-7'>When there's no wallet conencted.</div>
+    <div class='param-desc column is-7'><p>When there's no wallet conencted.</p></div>
     <div class='column is-5 has-text-left'>
         <label>Type: </label>
 <code class="param-type">WalletNotConnectedError</code>
@@ -2445,7 +2469,9 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'>- Observable for the transaction signature.</div>
+    <div class='param-desc column is-7'><ul>
+<li>Observable for the transaction signature.</li>
+</ul></div>
     
     
     <div class='column is-5 has-text-left'>
@@ -2485,7 +2511,7 @@
     
     
     <div class="description">
-        When the available adapters change, updates the state and informs the subscribers the new status of the wallet.
+        <p>When the available adapters change, updates the state and informs the subscribers the new status of the wallet.</p>
     </div>
     
 
@@ -2582,7 +2608,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -2636,7 +2662,7 @@
 
   
 
-  <td class="description last">List of transactions to sign</td>
+  <td class="description last"><p>List of transactions to sign</p></td>
 </tr>
 
 
@@ -2715,7 +2741,9 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'>- Observable for the transactions signed.</div>
+    <div class='param-desc column is-7'><ul>
+<li>Observable for the transactions signed.</li>
+</ul></div>
     
     
     <div class='column is-5 has-text-left'>
@@ -2758,7 +2786,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -2812,7 +2840,7 @@
 
   
 
-  <td class="description last">The message to sign.</td>
+  <td class="description last"><p>The message to sign.</p></td>
 </tr>
 
 
@@ -2891,7 +2919,9 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'>- Observable for the message signed.</div>
+    <div class='param-desc column is-7'><ul>
+<li>Observable for the message signed.</li>
+</ul></div>
     
     
     <div class='column is-5 has-text-left'>
@@ -2934,7 +2964,7 @@
     
     
     <div class="description">
-        // to do
+        <p>// to do</p>
     </div>
     
 
@@ -2988,7 +3018,7 @@
 
   
 
-  <td class="description last">The transaction to sign.</td>
+  <td class="description last"><p>The transaction to sign.</p></td>
 </tr>
 
 
@@ -3067,7 +3097,9 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'>- Observable for the signed transaction.</div>
+    <div class='param-desc column is-7'><ul>
+<li>Observable for the signed transaction.</li>
+</ul></div>
     
     
     <div class='column is-5 has-text-left'>

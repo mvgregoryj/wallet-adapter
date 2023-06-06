@@ -8,5 +8,9 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "better-docs": "^1.0.0",
+    "jsdoc-to-markdown": "^8.0.0"
+  }
 }

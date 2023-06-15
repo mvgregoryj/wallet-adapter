@@ -1,8 +1,5 @@
 {
-  "plugins": [
-    "node_modules/better-docs/typescript",
-    "plugins/markdown"
-  ],
+  "plugins": ["node_modules/better-docs/typescript", "plugins/markdown"],
   "source": {
     "include": ["./packages", "README.md"],
     "includePattern": "\\.(jsx|js|ts|tsx)$",

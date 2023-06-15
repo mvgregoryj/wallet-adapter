@@ -70,8 +70,19 @@ export interface WalletConfig {
   adapters: Adapter[];
 }
 
+/**
+ * Token used to provide the wallet configuration.
+ * @description This token is used to provide the wallet configuration to the dependency injection system.
+ * @type {InjectionToken<WalletConfig>}
+ */
 export const WALLET_CONFIG = new InjectionToken<WalletConfig>('walletConfig');
 
+/**
+ * Factory function that creates a provider for the wallet configuration.
+ * @description This function takes a partial configuration object for the wallet and returns a provider object for the wallet configuration. The provider object has a provide property set to WALLET_CONFIG and a useValue property set to the merged default and provided configuration values.
+ * @param {Partial<WalletConfig>} config - Partial configuration object for the wallet.
+ * @returns {Provider} The provider object for the wallet configuration.
+ */
 export const walletConfigProviderFactory = (config: Partial<WalletConfig>) => ({
   provide: WALLET_CONFIG,
   useValue: {
@@ -130,11 +141,14 @@ const initialState: {
   readyState: null,
 };
 
+/**
+ * Injectable class representing the WalletStore.
+ */
 @Injectable()
 export class WalletStore extends ComponentStore<WalletState> {
   /**
    * Subject of the selected wallet name.
-   * @description // to do
+   * @description This subject holds the selected wallet name and allows observing and updating its value.
    * @readonly
    * @private
    * @type {LocalStorageSubject<WalletName<string>>}
@@ -182,7 +196,7 @@ export class WalletStore extends ComponentStore<WalletState> {
   /**
    * Observable for the ready state iof the selected wallet.
    * @description notify the subcribers the value of the readyState of the selected wallet.
-   * @readonly 
+   * @readonly
    * @private
    * @type {Observable<WalletReadyState | null>}
    * @returns {Observable<WalletReadyState | null>}
@@ -544,7 +558,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Updates the selected wallet.
-   * @description // to do
+   * @description This method is used to update the selected wallet with the specified wallet name.
    * @method
    * @param {WalletName} walletName - The new wallet selected.
    * @returns {void}
@@ -555,7 +569,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Connects the adapter to the wallet.
-   * @description // to do
+   * @description Connects the adapter to the wallet by checking if it is not already connected, connecting or disconnecting. If there is no adapter selected, it throws a WalletNotSelectedError. If the readyState of the wallet is not Installed or Loadable, it throws a WalletNotReadyError. Otherwise, it connects to the adapter and updates the state accordingly.
    * @method
    * @type {Observable<unknown>}
    * @throws {WalletNotSelectedError} When there's no wallet selected.
@@ -612,7 +626,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Disconnects the adapter from the wallet.
-   * @description // to do
+   * @description Disconnects the adapter from the wallet by checking if it is not already disconnecting. If there is no adapter selected, it selects null as the wallet. Otherwise, it disconnects from the adapter and updates the state accordingly.
    * @method
    * @type {Observable<unknown>}
    */
@@ -643,7 +657,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sends a transaction using the provided connection.
-   * @description // to do
+   * @description Sends a transaction using the provided connection by checking if there is an adapter selected and if it is connected. If there is no adapter selected, it throws a WalletNotSelectedError. If there is no wallet connected, it throws a WalletNotConnectedError. Otherwise, it sends the transaction using the adapter.
    * @method
    * @param {Transaction} transaction - The Transaction to send.
    * @param {Connection} connection - The connection used to send the transaction.
@@ -681,7 +695,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign a transaction if the wallet supports it.
-   * @description // to do
+   * @description Sign a transaction if the wallet supports it by checking if there is an adapter selected and if it has the signTransaction method. If it does, it signs the transaction using the adapter. Otherwise, it returns undefined.
    * @method
    * @param {Transaction} transaction - The transaction to sign.
    * @returns {Observable<Transaction> | undefined} - Observable for the signed transaction.
@@ -700,7 +714,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign multiple transactions if the wallet supports it.
-   * @description // to do
+   * @description Sign multiple transactions if the wallet supports it by checking if there is an adapter selected and if it has the signAllTransactions method. If it does, it signs all the transactions using the adapter. Otherwise, it returns undefined.
    * @method
    * @param {Transaction[]} transactions - List of transactions to sign
    * @returns {Observable<Transaction[]> | undefined} - Observable for the transactions signed.
@@ -719,7 +733,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Sign an arbitrary message if the wallet supports it.
-   * @description // to do
+   * @description Sign an arbitrary message if the wallet supports it by checking if there is an adapter selected and if it has the signMessage method. If it does, it signs the message using the adapter. Otherwise, it returns undefined.
    * @method
    * @param {Uint8Array} message - The message to sign.
    * @returns {Observable<Uint8Array> | undefined} - Observable for the message signed.

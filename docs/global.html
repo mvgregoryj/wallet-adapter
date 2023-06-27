@@ -90,7 +90,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="WalletStore.html">WalletStore</a></li><li><a href="WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="Wallet.html">Wallet</a></li><li><a href="WalletConfig.html">WalletConfig</a></li><li><a href="WalletState.html">WalletState</a></li></ul><h3>Global</h3><ul><li><a href="global.html#WALLET_CONFIG">WALLET_CONFIG</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#walletConfigProviderFactory">walletConfigProviderFactory</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="ConnectionStore.html">ConnectionStore</a></li><li><a href="LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="WalletStore.html">WalletStore</a></li><li><a href="WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="ConnectionState.html">ConnectionState</a></li><li><a href="Wallet.html">Wallet</a></li><li><a href="WalletConfig.html">WalletConfig</a></li><li><a href="WalletState.html">WalletState</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CONNECTION_CONFIG">CONNECTION_CONFIG</a></li><li><a href="global.html#WALLET_CONFIG">WALLET_CONFIG</a></li><li><a href="global.html#connectionConfigProviderFactory">connectionConfigProviderFactory</a></li><li><a href="global.html#fromAdapterEvent">fromAdapterEvent</a></li><li><a href="global.html#getInitialValue">getInitialValue</a></li><li><a href="global.html#handleEvent">handleEvent</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#isNotNullOrUndefined">isNotNullOrUndefined</a></li><li><a href="global.html#provideWalletAdapter">provideWalletAdapter</a></li><li><a href="global.html#signAllTransactions">signAllTransactions</a></li><li><a href="global.html#signMessage">signMessage</a></li><li><a href="global.html#signTransaction">signTransaction</a></li><li><a href="global.html#walletConfigProviderFactory">walletConfigProviderFactory</a></li></ul></div>
                 
             </nav>
         </div>
@@ -180,6 +180,79 @@
             
                 <div class="member">
 
+<h4 class="name" id="CONNECTION_CONFIG">
+    <a class="href-link" href="#CONNECTION_CONFIG">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        CONNECTION_CONFIG
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Injection token for connection configuration.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line19">line 19</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
     <span class="method-parameter is-pulled-right">
         <label>Type:</label>
         
@@ -261,6 +334,225 @@
             
                 <div class="member">
 
+<h4 class="name" id="connectionConfigProviderFactory">
+    <a class="href-link" href="#connectionConfigProviderFactory">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        connectionConfigProviderFactory
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Provider factory for connection configuration.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line25">line 25</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="fromAdapterEvent">
+    <a class="href-link" href="#fromAdapterEvent">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        fromAdapterEvent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Creates an observable from a wallet adapter event.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_from-adapter-event.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_from-adapter-event.ts.html">data-access/src/lib/internals/from-adapter-event.ts</a>, <a href="data-access_src_lib_internals_from-adapter-event.ts.html#line9">line 9</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="handleEvent">
+    <a class="href-link" href="#handleEvent">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        handleEvent
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Handles events by projecting non-null values using the provided function.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_handle-event.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_handle-event.ts.html">data-access/src/lib/internals/handle-event.ts</a>, <a href="data-access_src_lib_internals_handle-event.ts.html#line8">line 8</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id="initialState">
     <a class="href-link" href="#initialState">#</a>
     
@@ -321,6 +613,298 @@
             <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
             <span>
                 <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line41">line 41</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="isNotNullOrUndefined">
+    <a class="href-link" href="#isNotNullOrUndefined">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        isNotNullOrUndefined
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Filters out null and undefined values from the source observable.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_is-not-null-or-undefined.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_is-not-null-or-undefined.ts.html">data-access/src/lib/internals/is-not-null-or-undefined.ts</a>, <a href="data-access_src_lib_internals_is-not-null-or-undefined.ts.html#line8">line 8</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="signAllTransactions">
+    <a class="href-link" href="#signAllTransactions">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        signAllTransactions
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Signs all transactions using the provided adapter.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line41">line 41</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="signMessage">
+    <a class="href-link" href="#signMessage">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        signMessage
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Signs a message using the provided adapter.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line11">line 11</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="signTransaction">
+    <a class="href-link" href="#signTransaction">#</a>
+    
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        signTransaction
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Signs a transaction using the provided adapter.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line26">line 26</a>
             </span>
         </p>
     
@@ -410,7 +994,1303 @@
     
 
     
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
 
+
+    
+    <h4 class="name" id="getInitialValue">
+        <a class="href-link" href="#getInitialValue">#</a>
+        
+        <span class="code-name">
+            
+                getInitialValue<span class="signature">(key)</span><span class="type-signature"> &rarr; {T|null}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Gets the initial value for the given key from local storage.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>key</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The key to get the value for.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_local-storage.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_local-storage.ts.html">data-access/src/lib/internals/local-storage.ts</a>, <a href="data-access_src_lib_internals_local-storage.ts.html#line8">line 8</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>The initial value, or null if not found.</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">T</code>
+|
+
+<code class="param-type">null</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="provideWalletAdapter">
+        <a class="href-link" href="#provideWalletAdapter">#</a>
+        
+        <span class="code-name">
+            
+                provideWalletAdapter<span class="signature">(walletConfig, connectionConfig<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array.&lt;Provider>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Provides a wallet adapter.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>walletConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Partial.&lt;<a href="WalletConfig.html">WalletConfig</a>></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Wallet settings.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>connectionConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">ConnectionConfig</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Connection settings.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet-adapter.module.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet-adapter.module.ts.html">data-access/src/lib/wallet-adapter.module.ts</a>, <a href="data-access_src_lib_wallet-adapter.module.ts.html#line19">line 19</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>An array of providers.</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;Provider></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Type Definitions</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="ErrorHandlerFunction">
+        <a class="href-link" href="#ErrorHandlerFunction">#</a>
+        
+        <span class="code-name">
+            
+                ErrorHandlerFunction<span class="signature">(error)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing an error handler function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>error</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">WalletError</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line53">line 53</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="HandlerFunction">
+        <a class="href-link" href="#HandlerFunction">#</a>
+        
+        <span class="code-name">
+            
+                HandlerFunction<span class="signature">(source)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing a handler function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>source</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Observable.&lt;(SourceType|null)></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_handle-event.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_handle-event.ts.html">data-access/src/lib/internals/handle-event.ts</a>, <a href="data-access_src_lib_internals_handle-event.ts.html#line16">line 16</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="MessageSigningFunction">
+        <a class="href-link" href="#MessageSigningFunction">#</a>
+        
+        <span class="code-name">
+            
+                MessageSigningFunction<span class="signature">(message)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing a message signing function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>message</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Uint8Array</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line58">line 58</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="ProjectionFunction">
+        <a class="href-link" href="#ProjectionFunction">#</a>
+        
+        <span class="code-name">
+            
+                ProjectionFunction<span class="signature">(value)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing a projection function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>value</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">SourceType</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_handle-event.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_handle-event.ts.html">data-access/src/lib/internals/handle-event.ts</a>, <a href="data-access_src_lib_internals_handle-event.ts.html#line11">line 11</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="TransactionSigningFunction">
+        <a class="href-link" href="#TransactionSigningFunction">#</a>
+        
+        <span class="code-name">
+            
+                TransactionSigningFunction<span class="signature">(transaction)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing a transaction signing function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>transaction</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Transaction</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line63">line 63</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="TransactionsSigningFunction">
+        <a class="href-link" href="#TransactionsSigningFunction">#</a>
+        
+        <span class="code-name">
+            
+                TransactionsSigningFunction<span class="signature">(transactions)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Type representing a transactions signing function.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>transactions</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_internals_sign.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_internals_sign.ts.html">data-access/src/lib/internals/sign.ts</a>, <a href="data-access_src_lib_internals_sign.ts.html#line68">line 68</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
     
 
     

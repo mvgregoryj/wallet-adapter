@@ -1,5 +1,10 @@
 import { BehaviorSubject } from 'rxjs';
 
+/**
+ * Gets the initial value for the given key from local storage.
+ * @param {string} key - The key to get the value for.
+ * @returns {T | null} The initial value, or null if not found.
+ */
 const getInitialValue = <T>(key: string): T | null => {
   try {
     const value = localStorage.getItem(key);
@@ -14,11 +19,18 @@ const getInitialValue = <T>(key: string): T | null => {
   return null;
 };
 
+/**
+ * A subject that stores its value in local storage.
+ */
 export class LocalStorageSubject<T> extends BehaviorSubject<T | null> {
   constructor(private _key: string) {
     super(getInitialValue<T>(_key));
   }
 
+  /**
+   * Sets the next value and updates local storage.
+   * @param {T | null} value - The next value.
+   */
   override next(value: T | null): void {
     try {
       if (value === null) {

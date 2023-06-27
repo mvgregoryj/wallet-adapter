@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> ConnectionStore</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -97,17 +97,54 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Class</p>
+                    <h1>ConnectionStore</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>ConnectionStore<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Store for connection.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
+
+
+    
+    <h4 class="name" id="ConnectionStore">
+        <a class="href-link" href="#ConnectionStore">#</a>
+        
+        <span class="code-name">
+            
+                new ConnectionStore<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
     
 
 
-    <h3> </h3>
 
 
 
@@ -117,121 +154,382 @@
 
 
 
+
+
+<dl class="details">
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line35">line 35</a>
+            </span>
+        </p>
+    
+</dl>
 
 
 
-    <section>
-        <article><p align="center">
-<img src="https://user-images.githubusercontent.com/7496781/213251275-69e098db-a8cf-4e14-ba75-4a1c11dbe2ca.svg" width="200" height="200" />
-</p>
-<h1>@heavy-duty/wallet-adapter</h1>
-<p>The official Angular library for integrating wallets from the Solana ecosystem.</p>
-<p>@heavy-duty/wallet-adapter smooths over the rough edges an Angular developer might encounter when implementing the framework-agnostic @solana/wallet-adapter &amp; aims to provide a more natural developer experience by conforming to Angular conventions.</p>
-<ul>
-<li><strong>Dependency injection</strong> - Provide and Inject Wallet services in your components</li>
-<li><strong>Observable based</strong> - Utilize RxJS rather than callbacks for realtime streams</li>
-</ul>
-<h2>Example use</h2>
-<pre class="prettyprint source lang-ts"><code>import { AsyncPipe, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { provideWalletAdapter, WalletStore } from '@heavy-duty/wallet-adapter';
-import {
-  PhantomWalletAdapter,
-  SolflareWalletAdapter,
-} from '@solana/wallet-adapter-wallets';
-
-@Component({
-  standalone: true,
-  selector: 'hd-root',
-
-  template: `
-    &lt;main>
-      &lt;header>
-        &lt;h1>Wallet Adapter Example (Raw)&lt;/h1>
-      &lt;/header>
-
-      &lt;section>
-        &lt;div>
-          &lt;p>
-            Wallet:
-            &lt;ng-container *ngIf=&quot;wallet$ | async as wallet; else noneWallet&quot;>
-              {{ wallet.adapter.name }}
-            &lt;/ng-container>
-            &lt;ng-template #noneWallet> None &lt;/ng-template>
-          &lt;/p>
-
-          &lt;p *ngIf=&quot;publicKey$ | async as publicKey&quot;>
-            Public Key: {{ publicKey.toBase58() }}
-          &lt;/p>
-
-          &lt;p>
-            Status: {{ (connected$ | async) ? 'connected' : 'disconnected' }}
-          &lt;/p>
-        &lt;/div>
-      &lt;/section>
-    &lt;/main>
-  `,
-  imports: [NgIf, AsyncPipe],
-  providers: [
-    provideWalletAdapter({
-      autoConnect: false,
-      adapters: [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
-    }),
-  ],
-})
-export class AppComponent {
-  private readonly _walletStore = inject(WalletStore);
-
-  readonly connected$ = this._walletStore.connected$;
-  readonly publicKey$ = this._walletStore.publicKey$;
-  readonly wallet$ = this._walletStore.wallet$;
-}
-</code></pre>
-<h2>Compatibility</h2>
-<h3>Angular and @solana/wallet-adapter versions</h3>
-<p>@heavy-duty/wallet-adapter doesn't follow Angular's versioning as @solana/wallet-adapter also has breaking changes throughout the year. Instead we try to maintain compatibility with both @solana/wallet-adapter and Angular majors for as long as possible, only breaking when we need to support a new major of one or the other.</p>
-<table>
-<thead>
-<tr>
-<th>Angular</th>
-<th>@heavy-duty/wallet-adapter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>15</td>
-<td>^0.5, ^0.6</td>
-</tr>
-<tr>
-<td>14</td>
-<td>^0.4</td>
-</tr>
-<tr>
-<td>13</td>
-<td>^0.3</td>
-</tr>
-<tr>
-<td>12</td>
-<td>^0.2</td>
-</tr>
-</tbody>
-</table>
-<p><sub>Version combinations not documented here <strong>may</strong> work but are untested.</sub></p>
-<h2>Resources</h2>
-<ul>
-<li><a href="/packages/raw-example/README.md">Quickstart</a> - Let your users select a wallet and connect to it.</li>
-<li><a href="/packages/cdk-example/README.md">Quickstart CDK</a> - Let your users select a wallet and connect to it using the headless UI package.</li>
-<li><a href="/packages/material-example/README.md">Quickstart Material</a> - Let your users select a wallet and connect to it using Angular Material UI.</li>
-</ul>
-<p>NOTE: Using the material package is the easiest way to get started, but it's less customizable, instead if you want a custom experience use the CDK or the base library.</p>
-<h2>Authors</h2>
-<p>Made with &lt;3 by <a href="https://github.com/heavy-duty">Heavy Duty Builders</a>.</p></article>
-    </section>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Members</h1>
+            <div class="members">
+            
+                <div class="member">
+
+<h4 class="name" id="onEndpointChange">
+    <a class="href-link" href="#onEndpointChange">#</a>
+    
+    <span class="code-name">
+        onEndpointChange
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Effect to handle changes in the endpoint.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line57">line 57</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="onEndpointChange">
+    <a class="href-link" href="#onEndpointChange">#</a>
+    
+    <span class="code-name">
+        onEndpointChange
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Effect to handle changes in the endpoint.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line91">line 91</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="setEndpoint">
+    <a class="href-link" href="#setEndpoint">#</a>
+    
+    <span class="code-name">
+        setEndpoint
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Sets the endpoint.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line50">line 50</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="setEndpoint">
+    <a class="href-link" href="#setEndpoint">#</a>
+    
+    <span class="code-name">
+        setEndpoint
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Sets the endpoint.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line87">line 87</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

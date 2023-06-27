@@ -11,6 +11,12 @@ import {
   WalletStore,
 } from './wallet.store';
 
+/**
+ * Provides a wallet adapter.
+ * @param {Partial<WalletConfig>} walletConfig - Wallet settings.
+ * @param {ConnectionConfig} [connectionConfig] - Connection settings.
+ * @returns {Provider[]} An array of providers.
+ */
 export function provideWalletAdapter(
   walletConfig: Partial<WalletConfig>,
   connectionConfig?: ConnectionConfig
@@ -22,6 +28,19 @@ export function provideWalletAdapter(
   ];
 }
 
+/**
+ * Module to provide an HD wallet adapter.
+ * @module HdWalletAdapterModule
+ * @example
+ * import { HdWalletAdapterModule } from './hd-wallet-adapter.module';
+ *
+ * @NgModule({
+ *   imports: [
+ *     HdWalletAdapterModule.forRoot(walletConfig, connectionConfig),
+ *   ],
+ * })
+ * export class AppModule {}
+ */
 @NgModule({})
 export class HdWalletAdapterModule {
   static forRoot(

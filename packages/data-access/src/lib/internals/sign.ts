@@ -32,6 +32,11 @@ type TransactionsSigningFunction = (
 ) => Observable<Transaction[]>;
 
 /**
+ * @module Sign
+ * @memberof global
+ */
+
+/**
  * Signs a message using the provided adapter.
  * @param {MessageSignerWalletAdapter} adapter - The adapter to use for signing.
  * @param {boolean} connected - Whether the adapter is connected.

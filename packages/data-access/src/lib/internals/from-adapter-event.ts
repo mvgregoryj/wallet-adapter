@@ -2,7 +2,7 @@ import {
   WalletAdapter,
   WalletAdapterEvents,
 } from '@solana/wallet-adapter-base';
-import { fromEventPattern, Observable } from 'rxjs';
+import { Observable, fromEventPattern } from 'rxjs';
 
 /**
  * Type representing the first parameter of a function.
@@ -12,6 +12,11 @@ type FirstParameter<T> = T extends () => unknown
   : T extends (arg1: infer U, ...args: unknown[]) => unknown
   ? U
   : unknown;
+
+/**
+ * @module WalletAdapterEvents
+ * @memberof global
+ */
 
 /**
  * Creates an observable from a wallet adapter event.

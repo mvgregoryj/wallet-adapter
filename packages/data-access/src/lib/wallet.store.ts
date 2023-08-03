@@ -71,6 +71,11 @@ export interface WalletConfig {
 }
 
 /**
+ * @module WalletConfig
+ * @memberof global
+ */
+
+/**
  * Token used to provide the wallet configuration.
  * @description This token is used to provide the wallet configuration to the dependency injection system.
  * @type {InjectionToken<WalletConfig>}

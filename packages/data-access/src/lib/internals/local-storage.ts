@@ -1,6 +1,11 @@
 import { BehaviorSubject } from 'rxjs';
 
 /**
+ * @module LocalStorageSubject
+ * @memberof global
+ */
+
+/**
  * Gets the initial value for the given key from local storage.
  * @param {string} key - The key to get the value for.
  * @returns {T | null} The initial value, or null if not found.

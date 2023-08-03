@@ -5,10 +5,16 @@ import { tap } from 'rxjs';
 import { isNotNullOrUndefined } from './internals';
 
 /**
+ * @module ConnectionConfig
+ * @memberof global
+ */
+
+/**
  * Injection token for connection configuration.
+ * @const {InjectionToken<ConnectionConfig>}
  */
 export const CONNECTION_CONFIG = new InjectionToken<ConnectionConfig>(
-	'connectionConfig'
+  'connectionConfig'
 );
 
 /**
@@ -17,13 +23,13 @@ export const CONNECTION_CONFIG = new InjectionToken<ConnectionConfig>(
  * @returns {Provider} A provider for connection configuration.
  */
 export const connectionConfigProviderFactory = (
-	config: ConnectionConfig = {}
+  config: ConnectionConfig = {}
 ) => ({
-	provide: CONNECTION_CONFIG,
-	useValue: {
-		commitment: 'confirmed',
-		...config,
-	},
+  provide: CONNECTION_CONFIG,
+  useValue: {
+    commitment: 'confirmed',
+    ...config,
+  },
 });
 
 /**
@@ -33,8 +39,8 @@ export const connectionConfigProviderFactory = (
  * @property {string | null} endpoint - The endpoint.
  */
 interface ConnectionState {
-	connection: Connection | null;
-	endpoint: string | null;
+  connection: Connection | null;
+  endpoint: string | null;
 }
 
 /**
@@ -42,46 +48,46 @@ interface ConnectionState {
  */
 @Injectable()
 export class ConnectionStore extends ComponentStore<ConnectionState> {
-	private readonly _endpoint$ = this.select(
-		this.state$,
-		({ endpoint }) => endpoint
-	);
-	readonly connection$ = this.select(
-		this.state$,
-		({ connection }) => connection
-	);
+  private readonly _endpoint$ = this.select(
+    this.state$,
+    ({ endpoint }) => endpoint
+  );
+  readonly connection$ = this.select(
+    this.state$,
+    ({ connection }) => connection
+  );
 
-	constructor(
-		@Optional()
-		@Inject(CONNECTION_CONFIG)
-		private _config: ConnectionConfig
-	) {
-		super({
-			connection: null,
-			endpoint: null,
-		});
-	}
+  constructor(
+    @Optional()
+    @Inject(CONNECTION_CONFIG)
+    private _config: ConnectionConfig
+  ) {
+    super({
+      connection: null,
+      endpoint: null,
+    });
+  }
 
-	/**
-	 * Sets the endpoint.
-	 * @param {string} endpoint - The endpoint.
-	 */
-	readonly setEndpoint = this.updater((state, endpoint: string) => ({
-		...state,
-		endpoint,
-	}));
+  /**
+   * Sets the endpoint.
+   * @param {string} endpoint - The endpoint.
+   */
+  readonly setEndpoint = this.updater((state, endpoint: string) => ({
+    ...state,
+    endpoint,
+  }));
 
-	/**
-	 * Effect to handle changes in the endpoint.
-	 */
-	readonly onEndpointChange = this.effect(() =>
-		this._endpoint$.pipe(
-			isNotNullOrUndefined,
-			tap((endpoint) =>
-				this.patchState({
-					connection: new Connection(endpoint, this._config),
-				})
-			)
-		)
-	);
+  /**
+   * Effect to handle changes in the endpoint.
+   */
+  readonly onEndpointChange = this.effect(() =>
+    this._endpoint$.pipe(
+      isNotNullOrUndefined,
+      tap((endpoint) =>
+        this.patchState({
+          connection: new Connection(endpoint, this._config),
+        })
+      )
+    )
+  );
 }

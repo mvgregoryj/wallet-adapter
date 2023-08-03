@@ -15,6 +15,11 @@ type HandlerFunction<SourceType, OutputType> = (
 ) => Observable<OutputType | null>;
 
 /**
+ * @module HandleEvent
+ * @memberof global
+ */
+
+/**
  * Handles events by projecting non-null values using the provided function.
  * @param {ProjectionFunction<SourceType, OutputType>} project - The function to use for projecting non-null values.
  * @returns {HandlerFunction<SourceType, OutputType>} A function that takes a source observable and returns an observable of projected values.

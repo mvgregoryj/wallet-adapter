@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> WalletConfig</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-cdk-example.html">
+                                cdk-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-material-example.html">
+                                material-example
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-raw-example.html">
+                                raw-example
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="global.module_ConnectionConfig.html">ConnectionConfig</a></li><li><a href="global.module_HandleEvent.html">HandleEvent</a></li><li><a href="global.module_IsNotNullOrUndefined.html">IsNotNullOrUndefined</a></li><li><a href="global.module_LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_Sign.html">Sign</a></li><li><a href="global.module_WalletAdapterEvents.html">WalletAdapterEvents</a></li><li><a href="global.module_WalletConfig.html">WalletConfig</a></li><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore.html">ConnectionStore</a></li><li><a href="global.module_LocalStorageSubject.LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></li><li><a href="global.module_WalletConfig-WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="global.module_ConnectionConfig-ConnectionState.html">ConnectionState</a></li><li><a href="global.module_WalletConfig-Wallet.html">Wallet</a></li><li><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></li><li><a href="global.module_WalletConfig-WalletState.html">WalletState</a></li></ul><h3><a href="global.html">Global</a></h3></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Module</p>
+                    <h1>WalletConfig</h1>
+                </header>
+                
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet-adapter.module.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet-adapter.module.ts.html">data-access/src/lib/wallet-adapter.module.ts</a>, <a href="data-access_src_lib_wallet-adapter.module.ts.html#line13">line 13</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Interfaces</h3>
+
+        <dl>
+            <dt><a href="global.module_WalletConfig-Wallet.html">Wallet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></dt>
+            <dd></dd>
+        
+            <dt><a href="global.module_WalletConfig-WalletState.html">WalletState</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Members</h1>
+            <div class="members">
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">InjectionToken.&lt;WalletConfig></code>
+
+
+    </span>
+
+<h4 class="name" id=".WALLET_CONFIG">
+    <a class="href-link" href="#.WALLET_CONFIG">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        WALLET_CONFIG
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This token is used to provide the wallet configuration to the dependency injection system.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line25">line 25</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".walletConfigProviderFactory">
+    <a class="href-link" href="#.walletConfigProviderFactory">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        walletConfigProviderFactory
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This function takes a partial configuration object for the wallet and returns a provider object for the wallet configuration. The provider object has a provide property set to WALLET_CONFIG and a useValue property set to the merged default and provided configuration values.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line32">line 32</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="~initialState">
+    <a class="href-link" href="#~initialState">#</a>
+    
+        
+            <span class='tag'>inner</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        initialState
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Initial state of the WalletStore object.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line45">line 45</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".provideWalletAdapter">
+        <a class="href-link" href="#.provideWalletAdapter">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                provideWalletAdapter<span class="signature">(walletConfig, connectionConfig<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array.&lt;Provider>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Provides a wallet adapter.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>walletConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Partial.&lt;WalletConfig></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Wallet settings.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>connectionConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">ConnectionConfig</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Connection settings.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet-adapter.module.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet-adapter.module.ts.html">data-access/src/lib/wallet-adapter.module.ts</a>, <a href="data-access_src_lib_wallet-adapter.module.ts.html#line23">line 23</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>An array of providers.</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;Provider></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line16">line 16</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Interfaces</h3>
+
+        <dl>
+            <dt><a href="global.module_WalletConfig-Wallet.html">Wallet</a></dt>
+            <dd></dd>
+        
+            <dt><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></dt>
+            <dd></dd>
+        
+            <dt><a href="global.module_WalletConfig-WalletState.html">WalletState</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Members</h1>
+            <div class="members">
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">InjectionToken.&lt;WalletConfig></code>
+
+
+    </span>
+
+<h4 class="name" id=".WALLET_CONFIG">
+    <a class="href-link" href="#.WALLET_CONFIG">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        WALLET_CONFIG
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This token is used to provide the wallet configuration to the dependency injection system.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line25">line 25</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id=".walletConfigProviderFactory">
+    <a class="href-link" href="#.walletConfigProviderFactory">#</a>
+    
+        
+            <span class='tag'>static</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        walletConfigProviderFactory
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>This function takes a partial configuration object for the wallet and returns a provider object for the wallet configuration. The provider object has a provide property set to WALLET_CONFIG and a useValue property set to the merged default and provided configuration values.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line32">line 32</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="~initialState">
+    <a class="href-link" href="#~initialState">#</a>
+    
+        
+            <span class='tag'>inner</span>
+        
+            <span class='tag'>constant</span>
+        
+    
+    <span class="code-name">
+        initialState
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Initial state of the WalletStore object.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line45">line 45</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".provideWalletAdapter">
+        <a class="href-link" href="#.provideWalletAdapter">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                provideWalletAdapter<span class="signature">(walletConfig, connectionConfig<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array.&lt;Provider>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Provides a wallet adapter.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>walletConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Partial.&lt;WalletConfig></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Wallet settings.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>connectionConfig</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">ConnectionConfig</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>Connection settings.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="data-access_src_lib_wallet-adapter.module.ts.html" class="button">View Source</a>
+            <span>
+                <a href="data-access_src_lib_wallet-adapter.module.ts.html">data-access/src/lib/wallet-adapter.module.ts</a>, <a href="data-access_src_lib_wallet-adapter.module.ts.html#line23">line 23</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>An array of providers.</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;Provider></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

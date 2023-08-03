@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> WalletStore</title>
+  <title> ConnectionState</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -90,15 +90,15 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="global.module_ConnectionConfig.html">ConnectionConfig</a></li><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="WalletStore.html">WalletStore</a></li><li><a href="WalletStore_WalletStore.html">WalletStore</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore.html">ConnectionStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="Wallet.html">Wallet</a></li><li><a href="WalletConfig.html">WalletConfig</a></li><li><a href="WalletState.html">WalletState</a></li><li><a href="global.module_ConnectionConfig-ConnectionState.html">ConnectionState</a></li></ul><h3>Global</h3><ul><li><a href="global.html#WALLET_CONFIG">WALLET_CONFIG</a></li><li><a href="global.html#fromAdapterEvent">fromAdapterEvent</a></li><li><a href="global.html#getInitialValue">getInitialValue</a></li><li><a href="global.html#handleEvent">handleEvent</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#isNotNullOrUndefined">isNotNullOrUndefined</a></li><li><a href="global.html#provideWalletAdapter">provideWalletAdapter</a></li><li><a href="global.html#signAllTransactions">signAllTransactions</a></li><li><a href="global.html#signMessage">signMessage</a></li><li><a href="global.html#signTransaction">signTransaction</a></li><li><a href="global.html#walletConfigProviderFactory">walletConfigProviderFactory</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="global.module_ConnectionConfig.html">ConnectionConfig</a></li><li><a href="global.module_HandleEvent.html">HandleEvent</a></li><li><a href="global.module_IsNotNullOrUndefined.html">IsNotNullOrUndefined</a></li><li><a href="global.module_LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_Sign.html">Sign</a></li><li><a href="global.module_WalletAdapterEvents.html">WalletAdapterEvents</a></li><li><a href="global.module_WalletConfig.html">WalletConfig</a></li><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore.html">ConnectionStore</a></li><li><a href="global.module_LocalStorageSubject.LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></li><li><a href="global.module_WalletConfig-WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="global.module_ConnectionConfig-ConnectionState.html">ConnectionState</a></li><li><a href="global.module_WalletConfig-Wallet.html">Wallet</a></li><li><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></li><li><a href="global.module_WalletConfig-WalletState.html">WalletState</a></li></ul><h3><a href="global.html">Global</a></h3></div>
                 
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Class</p>
-                    <h1>WalletStore</h1>
+                    <p>Interface</p>
+                    <h1>ConnectionState</h1>
                 </header>
                 
 
@@ -109,8 +109,8 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="WalletStore.html">WalletStore</a>#</span>WalletStore<span class="signature">(_config)</span><span class="type-signature"></span></h2>
+        <h2>
+            <span class="ancestors"><a href="global.module_ConnectionConfig.html">.ConnectionConfig</a>~</span>ConnectionState</h2>
         
     
 </header>
@@ -119,46 +119,17 @@
     <div class="container-overview">
     
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="WalletStore">
-        <a class="href-link" href="#WalletStore">#</a>
+            <div class="description"><p>Connection state.</p></div>
         
-        <span class="code-name">
-            
-                new WalletStore<span class="signature">(_config)</span><span class="type-signature"></span>
-            
-        </span>
-    </h4>
-    
 
-    
-    
-    <div class="description">
-        <p>sets up the initial wallet state.</p>
-    </div>
-    
+        
 
 
+    <h5 class="subsection-title">Properties:</h5>
 
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
 <div class="table-container">
-    <table class="params table">
+    <table class="props table">
         <thead>
         <tr>
             
@@ -177,36 +148,61 @@
 
         <tbody>
         
-
             
 <tr class="deep-level-0">
-  
-      <td class="name"><code>_config</code></td>
-  
+    
+        <td class="name"><code>connection</code></td>
+    
 
-  <td class="type">
-  
-      
-<code class="param-type"><a href="WalletConfig.html">WalletConfig</a></code>
+    <td class="type">
+    
+        
+<code class="param-type">Connection</code>
+|
+
+<code class="param-type">null</code>
 
 
-  
-  </td>
+    
+    </td>
 
-  
+    
 
-  
+    
 
-  <td class="description last"><p>The configuration of the wallet.</p></td>
+    <td class="description last"><p>The connection.</p></td>
 </tr>
 
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>endpoint</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+|
+
+<code class="param-type">null</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>The endpoint.</p></td>
+</tr>
 
         
         </tbody>
     </table>
 </div>
-
-
 
 
 
@@ -243,38 +239,15 @@
 
     
         <p class="tag-source">
-            <a href="data-access_src_lib_wallet.store.ts.html" class="button">View Source</a>
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
             <span>
-                <a href="data-access_src_lib_wallet.store.ts.html">data-access/src/lib/wallet.store.ts</a>, <a href="data-access_src_lib_wallet.store.ts.html#line657">line 657</a>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line80">line 80</a>
             </span>
         </p>
     
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
         
     
     </div>

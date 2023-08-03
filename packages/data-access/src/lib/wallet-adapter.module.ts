@@ -2,14 +2,19 @@ import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { provideComponentStore } from '@ngrx/component-store';
 import { ConnectionConfig } from '@solana/web3.js';
 import {
-  connectionConfigProviderFactory,
   ConnectionStore,
+  connectionConfigProviderFactory,
 } from './connection.store';
 import {
   WalletConfig,
-  walletConfigProviderFactory,
   WalletStore,
+  walletConfigProviderFactory,
 } from './wallet.store';
+
+/**
+ * @module WalletConfig
+ * @memberof global
+ */
 
 /**
  * Provides a wallet adapter.

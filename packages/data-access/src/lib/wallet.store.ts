@@ -148,6 +148,7 @@ const initialState: {
 
 /**
  * Injectable class representing the WalletStore.
+ * @class
  */
 @Injectable()
 export class WalletStore extends ComponentStore<WalletState> {
@@ -310,8 +311,7 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Creates a new WalletStore object.
-   * @description sets up the initial wallet state.
-   * @contructs WalletStore
+   * @constructor
    * @param {WalletConfig} _config - The configuration of the wallet.
    */
   constructor(
@@ -574,10 +574,11 @@ export class WalletStore extends ComponentStore<WalletState> {
 
   /**
    * Connects the adapter to the wallet.
-   * @description Connects the adapter to the wallet by checking if it is not already connected, connecting or disconnecting. If there is no adapter selected, it throws a WalletNotSelectedError. If the readyState of the wallet is not Installed or Loadable, it throws a WalletNotReadyError. Otherwise, it connects to the adapter and updates the state accordingly.
+   * @description Connects the adapter to the wallet by checking if it is not already connected, connecting, or disconnecting. If there is no adapter selected, it throws a WalletNotSelectedError. If the readyState of the wallet is not Installed or Loadable, it throws a WalletNotReadyError. Otherwise, it connects to the adapter and updates the state accordingly.
    * @method
-   * @type {Observable<unknown>}
+   * @returns {Observable<unknown>} An observable representing the connection process.
    * @throws {WalletNotSelectedError} When there's no wallet selected.
+   * @throws {WalletNotReadyError} When the wallet is not ready.
    */
   connect(): Observable<unknown> {
     return combineLatest([
@@ -633,7 +634,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Disconnects the adapter from the wallet.
    * @description Disconnects the adapter from the wallet by checking if it is not already disconnecting. If there is no adapter selected, it selects null as the wallet. Otherwise, it disconnects from the adapter and updates the state accordingly.
    * @method
-   * @type {Observable<unknown>}
+   * @returns {Observable<unknown>} An observable representing the disconnection process.
    */
   disconnect(): Observable<unknown> {
     return combineLatest([this.disconnecting$, this._adapter$]).pipe(
@@ -667,9 +668,9 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @param {Transaction} transaction - The Transaction to send.
    * @param {Connection} connection - The connection used to send the transaction.
    * @param {SendTransactionOptions} options - The configurations required to send the transaction.
-   * @returns {Observable<TransactionSignature>} - Observable for the transaction signature.
+   * @returns {Observable<TransactionSignature>} - An observable representing the transaction signature.
    * @throws {WalletNotSelectedError} When there's no wallet selected.
-   * @throws {WalletNotConnectedError} When there's no wallet conencted.
+   * @throws {WalletNotConnectedError} When there's no wallet connected.
    */
   sendTransaction(
     transaction: Transaction,
@@ -703,7 +704,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description Sign a transaction if the wallet supports it by checking if there is an adapter selected and if it has the signTransaction method. If it does, it signs the transaction using the adapter. Otherwise, it returns undefined.
    * @method
    * @param {Transaction} transaction - The transaction to sign.
-   * @returns {Observable<Transaction> | undefined} - Observable for the signed transaction.
+   * @returns {Observable<Transaction> | undefined} - An observable representing the signed transaction or undefined if signing is not supported.
    */
   signTransaction(
     transaction: Transaction
@@ -721,8 +722,8 @@ export class WalletStore extends ComponentStore<WalletState> {
    * Sign multiple transactions if the wallet supports it.
    * @description Sign multiple transactions if the wallet supports it by checking if there is an adapter selected and if it has the signAllTransactions method. If it does, it signs all the transactions using the adapter. Otherwise, it returns undefined.
    * @method
-   * @param {Transaction[]} transactions - List of transactions to sign
-   * @returns {Observable<Transaction[]> | undefined} - Observable for the transactions signed.
+   * @param {Transaction[]} transactions - List of transactions to sign.
+   * @returns {Observable<Transaction[]> | undefined} - An observable representing the signed transactions or undefined if signing is not supported.
    */
   signAllTransactions(
     transactions: Transaction[]
@@ -741,7 +742,7 @@ export class WalletStore extends ComponentStore<WalletState> {
    * @description Sign an arbitrary message if the wallet supports it by checking if there is an adapter selected and if it has the signMessage method. If it does, it signs the message using the adapter. Otherwise, it returns undefined.
    * @method
    * @param {Uint8Array} message - The message to sign.
-   * @returns {Observable<Uint8Array> | undefined} - Observable for the message signed.
+   * @returns {Observable<Uint8Array> | undefined} - An observable representing the signed message or undefined if signing is not supported.
    */
   signMessage(message: Uint8Array): Observable<Uint8Array> | undefined {
     const { adapter, connected } = this.get();

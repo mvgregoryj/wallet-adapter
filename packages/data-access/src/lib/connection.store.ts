@@ -12,6 +12,7 @@ import { isNotNullOrUndefined } from './internals';
 /**
  * Injection token for connection configuration.
  * @const {InjectionToken<ConnectionConfig>}
+ * @see ConnectionConfig
  */
 export const CONNECTION_CONFIG = new InjectionToken<ConnectionConfig>(
   'connectionConfig'
@@ -21,6 +22,7 @@ export const CONNECTION_CONFIG = new InjectionToken<ConnectionConfig>(
  * Provider factory for connection configuration.
  * @param {ConnectionConfig} [config={}] - Connection configuration.
  * @returns {Provider} A provider for connection configuration.
+ * @see CONNECTION_CONFIG
  */
 export const connectionConfigProviderFactory = (
   config: ConnectionConfig = {}
@@ -33,8 +35,8 @@ export const connectionConfigProviderFactory = (
 });
 
 /**
- * Connection state.
- * @typedef {Object} ConnectionState
+ * Interface representing the connection state.
+ * @interface
  * @property {Connection | null} connection - The connection.
  * @property {string | null} endpoint - The endpoint.
  */
@@ -44,7 +46,16 @@ interface ConnectionState {
 }
 
 /**
- * Store for connection.
+ * Represents the connection state.
+ * @typedef {Object} ConnectionState
+ * @property {Connection | null} connection - The connection.
+ * @property {string | null} endpoint - The endpoint.
+ */
+
+/**
+ * Store for managing connection state.
+ * @class
+ * @extends ComponentStore<ConnectionState>
  */
 @Injectable()
 export class ConnectionStore extends ComponentStore<ConnectionState> {
@@ -57,6 +68,11 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
     ({ connection }) => connection
   );
 
+  /**
+   * Creates an instance of ConnectionStore.
+   * @constructor
+   * @param {ConnectionConfig} [_config] - The connection configuration.
+   */
   constructor(
     @Optional()
     @Inject(CONNECTION_CONFIG)
@@ -70,7 +86,9 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
 
   /**
    * Sets the endpoint.
-   * @param {string} endpoint - The endpoint.
+   * @param {string} endpoint - The endpoint to set.
+   * @memberof global
+   * @method
    */
   readonly setEndpoint = this.updater((state, endpoint: string) => ({
     ...state,
@@ -79,6 +97,8 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
 
   /**
    * Effect to handle changes in the endpoint.
+   * @memberof global
+   * @method
    */
   readonly onEndpointChange = this.effect(() =>
     this._endpoint$.pipe(

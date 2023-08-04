@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> WalletNotSelectedError</title>
+  <title> ConnectionState</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -97,8 +97,8 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Class</p>
-                    <h1>WalletNotSelectedError</h1>
+                    <p>Interface</p>
+                    <h1>ConnectionState</h1>
                 </header>
                 
 
@@ -109,9 +109,8 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>WalletNotSelectedError<span class="signature">()</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Error thrown when a wallet is not selected.</p></div>
+        <h2>
+            <span class="ancestors"><a href="global.module_ConnectionConfig.html">.ConnectionConfig</a>~</span>ConnectionState</h2>
         
     
 </header>
@@ -120,39 +119,90 @@
     <div class="container-overview">
     
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="WalletNotSelectedError">
-        <a class="href-link" href="#WalletNotSelectedError">#</a>
+            <div class="description"><p>Interface representing the connection state.</p></div>
         
-        <span class="code-name">
+
+        
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
             
-                new WalletNotSelectedError<span class="signature">()</span><span class="type-signature"></span>
+            <th>Name</th>
             
-        </span>
-    </h4>
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>connection</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Connection</code>
+|
+
+<code class="param-type">null</code>
+
+
+    
+    </td>
+
     
 
     
+
+    <td class="description last"><p>The connection.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>endpoint</code></td>
     
 
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+|
+
+<code class="param-type">null</code>
 
 
+    
+    </td>
 
+    
 
+    
 
+    <td class="description last"><p>The endpoint.</p></td>
+</tr>
 
-
-
-
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -189,38 +239,15 @@
 
     
         <p class="tag-source">
-            <a href="data-access_src_lib_internals_errors.ts.html" class="button">View Source</a>
+            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
             <span>
-                <a href="data-access_src_lib_internals_errors.ts.html">data-access/src/lib/internals/errors.ts</a>, <a href="data-access_src_lib_internals_errors.ts.html#line6">line 6</a>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line99">line 99</a>
             </span>
         </p>
     
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
         
     
     </div>

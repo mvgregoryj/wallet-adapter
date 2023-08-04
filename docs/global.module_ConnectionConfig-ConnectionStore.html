@@ -90,7 +90,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="global.module_ConnectionConfig.html">ConnectionConfig</a></li><li><a href="global.module_HandleEvent.html">HandleEvent</a></li><li><a href="global.module_IsNotNullOrUndefined.html">IsNotNullOrUndefined</a></li><li><a href="global.module_LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_Sign.html">Sign</a></li><li><a href="global.module_WalletAdapterEvents.html">WalletAdapterEvents</a></li><li><a href="global.module_WalletConfig.html">WalletConfig</a></li><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore.html">ConnectionStore</a></li><li><a href="global.module_LocalStorageSubject.LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></li><li><a href="global.module_WalletConfig-WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="global.module_ConnectionConfig-ConnectionState.html">ConnectionState</a></li><li><a href="global.module_WalletConfig-Wallet.html">Wallet</a></li><li><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></li><li><a href="global.module_WalletConfig-WalletState.html">WalletState</a></li></ul><h3><a href="global.html">Global</a></h3></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="global.module_ConnectionConfig.html">ConnectionConfig</a></li><li><a href="global.module_HandleEvent.html">HandleEvent</a></li><li><a href="global.module_IsNotNullOrUndefined.html">IsNotNullOrUndefined</a></li><li><a href="global.module_LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_Sign.html">Sign</a></li><li><a href="global.module_WalletAdapterEvents.html">WalletAdapterEvents</a></li><li><a href="global.module_WalletConfig.html">WalletConfig</a></li><li><a href="module-HdWalletAdapterModule.html">HdWalletAdapterModule</a></li></ul><h3>Classes</h3><ul><li><a href="WalletNotSelectedError.html">WalletNotSelectedError</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore.html">ConnectionStore</a></li><li><a href="global.module_ConnectionConfig-ConnectionStore_ConnectionStore.html">ConnectionStore</a></li><li><a href="global.module_LocalStorageSubject.LocalStorageSubject.html">LocalStorageSubject</a></li><li><a href="global.module_WalletConfig-WalletStore.html">WalletStore</a></li><li><a href="global.module_WalletConfig-WalletStore_WalletStore.html">WalletStore</a></li></ul><h3>Interfaces</h3><ul><li><a href="global.module_ConnectionConfig.html#~ConnectionState">ConnectionState</a></li><li><a href="global.module_WalletConfig-Wallet.html">Wallet</a></li><li><a href="global.module_WalletConfig-WalletConfig.html">WalletConfig</a></li><li><a href="global.module_WalletConfig-WalletState.html">WalletState</a></li></ul><h3><a href="global.html">Global</a></h3></div>
                 
             </nav>
         </div>
@@ -110,9 +110,9 @@
 <header>
     
         <h2><span class="attribs"><span class="type-signature"></span></span>
-            <span class="ancestors"><a href="global.module_ConnectionConfig.html">.ConnectionConfig</a>~</span>ConnectionStore<span class="signature">()</span><span class="type-signature"></span></h2>
+            <span class="ancestors"><a href="global.module_ConnectionConfig.html">.ConnectionConfig</a>~</span>ConnectionStore<span class="signature">(_config<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Store for connection.</p></div>
+            <div class="class-description"><p>Store for managing connection state.</p></div>
         
     
 </header>
@@ -136,7 +136,7 @@
         
         <span class="code-name">
             
-                new ConnectionStore<span class="signature">()</span><span class="type-signature"></span>
+                new ConnectionStore<span class="signature">(_config<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -144,6 +144,10 @@
 
     
     
+    <div class="description">
+        <p>Creates an instance of ConnectionStore.</p>
+    </div>
+    
 
 
 
@@ -152,6 +156,69 @@
 
 
 
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>_config</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">ConnectionConfig</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>The connection configuration.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -192,7 +259,7 @@
         <p class="tag-source">
             <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
             <span>
-                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line40">line 40</a>
+                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line50">line 50</a>
             </span>
         </p>
     
@@ -227,269 +294,27 @@
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class='vertical-section'>
-            <h1>Members</h1>
-            <div class="members">
-            
-                <div class="member">
-
-<h4 class="name" id="onEndpointChange">
-    <a class="href-link" href="#onEndpointChange">#</a>
-    
-    <span class="code-name">
-        onEndpointChange
-    </span>
-    
-</h4>
-
-
-
-
-<div class="description">
-    <p>Effect to handle changes in the endpoint.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
-            <span>
-                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line62">line 62</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-<h4 class="name" id="onEndpointChange">
-    <a class="href-link" href="#onEndpointChange">#</a>
-    
-    <span class="code-name">
-        onEndpointChange
-    </span>
-    
-</h4>
-
-
-
-
-<div class="description">
-    <p>Effect to handle changes in the endpoint.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+        
 
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
-            <span>
-                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line96">line 96</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-<h4 class="name" id="setEndpoint">
-    <a class="href-link" href="#setEndpoint">#</a>
-    
-    <span class="code-name">
-        setEndpoint
-    </span>
-    
-</h4>
-
-
-
-
-<div class="description">
-    <p>Sets the endpoint.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
-            <span>
-                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line55">line 55</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-<h4 class="name" id="setEndpoint">
-    <a class="href-link" href="#setEndpoint">#</a>
-    
-    <span class="code-name">
-        setEndpoint
-    </span>
-    
-</h4>
-
-
-
-
-<div class="description">
-    <p>Sets the endpoint.</p>
-</div>
-
 
+    <ul>
+        <li>ComponentStore.&lt;ConnectionState></li>
+    </ul>
 
 
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
 
     
 
     
+        <h3 class="subsection-title">Classes</h3>
 
+        <dl>
+            <dt><a href="global.module_ConnectionConfig-ConnectionStore_ConnectionStore.html">ConnectionStore</a></dt>
+            <dd></dd>
+        </dl>
     
 
     
@@ -497,30 +322,7 @@
     
 
     
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="data-access_src_lib_connection.store.ts.html" class="button">View Source</a>
-            <span>
-                <a href="data-access_src_lib_connection.store.ts.html">data-access/src/lib/connection.store.ts</a>, <a href="data-access_src_lib_connection.store.ts.html#line92">line 92</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
 
-</div>
-            
-            </div>
-        </div>
     
 
     

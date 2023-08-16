@@ -45,24 +45,22 @@ interface ConnectionState {
   endpoint: string | null;
 }
 
-// /**
-//  * Represents the connection state.
-//  * @typedef {Object} ConnectionState
-//  * @property {Connection | null} connection - The connection.
-//  * @property {string | null} endpoint - The endpoint.
-//  */
-
-// /**
-//  * Store for managing connection state.
-//  * @class
-//  * @extends ComponentStore<ConnectionState>
-//  */
 @Injectable()
 export class ConnectionStore extends ComponentStore<ConnectionState> {
+  /**
+   * Endpoint observable.
+   * @private
+   * @readonly
+   */
   private readonly _endpoint$ = this.select(
     this.state$,
     ({ endpoint }) => endpoint
   );
+
+  /**
+   * Connection observable.
+   * @readonly
+   */
   readonly connection$ = this.select(
     this.state$,
     ({ connection }) => connection
@@ -70,7 +68,6 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
 
   /**
    * Creates an instance of ConnectionStore.
-   * @constructor
    * @param {ConnectionConfig} [_config] - The connection configuration.
    */
   constructor(
@@ -86,9 +83,7 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
 
   /**
    * Sets the endpoint.
-   * @param {string} endpoint - The endpoint to set.
-   * @memberof global
-   * @method
+   * @readonly
    */
   readonly setEndpoint = this.updater((state, endpoint: string) => ({
     ...state,
@@ -96,9 +91,8 @@ export class ConnectionStore extends ComponentStore<ConnectionState> {
   }));
 
   /**
-   * Effect to handle changes in the endpoint.
-   * @memberof global
-   * @method
+   * Effect for handling endpoint changes.
+   * @readonly
    */
   readonly onEndpointChange = this.effect(() =>
     this._endpoint$.pipe(

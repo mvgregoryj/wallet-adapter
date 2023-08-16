@@ -146,10 +146,10 @@ const initialState: {
   readyState: null,
 };
 
-/**
- * Injectable class representing the WalletStore.
- * @class
- */
+// /**
+//  * Injectable class representing the WalletStore.
+//  * @class
+//  */
 @Injectable()
 export class WalletStore extends ComponentStore<WalletState> {
   /**

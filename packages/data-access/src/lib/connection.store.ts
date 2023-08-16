@@ -45,18 +45,18 @@ interface ConnectionState {
   endpoint: string | null;
 }
 
-/**
- * Represents the connection state.
- * @typedef {Object} ConnectionState
- * @property {Connection | null} connection - The connection.
- * @property {string | null} endpoint - The endpoint.
- */
+// /**
+//  * Represents the connection state.
+//  * @typedef {Object} ConnectionState
+//  * @property {Connection | null} connection - The connection.
+//  * @property {string | null} endpoint - The endpoint.
+//  */
 
-/**
- * Store for managing connection state.
- * @class
- * @extends ComponentStore<ConnectionState>
- */
+// /**
+//  * Store for managing connection state.
+//  * @class
+//  * @extends ComponentStore<ConnectionState>
+//  */
 @Injectable()
 export class ConnectionStore extends ComponentStore<ConnectionState> {
   private readonly _endpoint$ = this.select(
